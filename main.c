@@ -8,7 +8,7 @@
  */
 int main (int argc, char * argv[])
 {
-char * filename = NULL, ** lines;
+char * filename = NULL, ** lines, *token1, *token2;
 int file_l, linecount = 1, c1 = 0, c2 = 0;
 FILE *file = NULL;
 
@@ -42,8 +42,8 @@ char *file_c, *line = NULL;
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
-    printf("number of lines :%i\n", c1);
-    printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+    //printf("number of lines :%i\n", c1);
+    //printf("line in lines[%i] is: %s\n", c2, lines[c2]);
     c2++;
     for (c2 = 1 ; c2 < c1 ; c2 ++)
     {   
@@ -51,8 +51,18 @@ char *file_c, *line = NULL;
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
             printerror("Error: strdupfailed\n");
-        printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+    //printf("line in lines[%i] is: %s\n", c2, lines[c2]);
         linecount++;
+    }
+
+    for (c2 = 0 ; c2 < c1 ; c2 ++)
+    {
+        token1 = strtok(lines[c2], " \t");
+        if (token1 != NULL)
+        {
+            token2 = strtok(NULL, " \t");
+            execom(token1, token2)
+        }
     }
 return (0);
 }
@@ -99,4 +109,10 @@ int filelines(FILE *file)
         }
         line_count++;
         return line_count;
+}
+
+void execom(char * command, char * number)
+{   
+    if (command != NULL && number != NULL)
+    print("command is : %s and number is %i\n");
 }
