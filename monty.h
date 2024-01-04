@@ -40,7 +40,7 @@ typedef struct optcom
 {
 	char * name;
 	void (*f)(char * command, char * number);
-} optionscommand
+} optionscommand;
 
 void printerror (char * string);
 int filelength(FILE *file);
