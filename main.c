@@ -8,25 +8,31 @@
  */
 int main (int argc, char * argv[])
 {
-char * filename = NULL;
+char * filename = NULL, ** lines;
 int file_l, linecount = 1, c1 = 0;
 FILE *file = NULL;
 
 char *file_c, *line = NULL;
 
     if (argc < 2) 
-        {printerror("USAGE: monty file\n");}
+            printerror("USAGE: monty file\n");
+        
     filename = argv[1];
     file = fopen(filename, "r");
+
     if (file == NULL)
-        {printerror("Error: Can't open file <file>\n");}
-    file_l = filelength(file);
+            printerror("Error: Can't open file <file>\n");
+
+    file_l = filelengthlines = malloc(c1 * sizeof(char *));(file);
     file_c = malloc(file_l + 1);
+    
     if (file_c == NULL)
-        {printerror("Error: malloc failed\n");}
+        printerror("Error: malloc failed\n");
+
     fread(file_c, 1, file_l, file);
     file_c[file_l] = '\0';
     c1 = filelines(file);
+    lines = malloc(c1 * sizeof(char *));
     fclose(file);
     line = strtok(file_c, "\n");
 
@@ -78,5 +84,6 @@ int filelines(FILE *file)
                 line_count++;
             }
         }
+        line_count++;
         return line_count;
 }
