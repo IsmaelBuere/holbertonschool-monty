@@ -46,5 +46,13 @@ void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);
 void execom(char * command, char * number);
+void exe_push();
+void exe_nop();
+void exe_add();
+void exe_swap();
+void exe_pop();
+void exe_pint();
+void exe_pall();
+
 
 #endif
