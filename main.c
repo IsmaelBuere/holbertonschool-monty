@@ -8,8 +8,8 @@
  */
 int main (int argc, char * argv[])
 {
-char * filename = NULL;
-int file_l, linecount = 1;
+char * filename = NULL, **lines;
+int file_l, linecount = 1, c1 = 0, c2 = 0;
 FILE *file = NULL;
 
 char *file_c, *line = NULL;
@@ -28,10 +28,13 @@ char *file_c, *line = NULL;
     file_c[file_l] = '\0';
     fclose(file);
     line = strtok(file_c, "\n");
+
+    c1 = filelines(file);
+    printf("number of lines :%i\n", c1)
     while (line != NULL)
     {
         printf("%s\n", line);
-        line = strtok(NULL, "\n");
+        lines = strtok(NULL, "\n");
         linecount++;
     }
 return (0);
