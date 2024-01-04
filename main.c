@@ -33,10 +33,14 @@ char *file_c, *line = NULL;
     file_c[file_l] = '\0';
     c1 = filelines(file);
     lines = malloc(c1 * sizeof(char *));
+    if (lines == NULL)
+        printerror("Error: malloc failed\n");
     fclose(file);
 
     line = strtok(file_c, "\n");
     lines[c2] = strdup(line);
+    if (lines[c2] = NULL)
+        printerror("Error: strdup failed\n");
     c2++;
     printf("number of lines :%i\n", c1);
     while (line != NULL)
