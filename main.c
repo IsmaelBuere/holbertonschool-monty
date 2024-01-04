@@ -23,7 +23,7 @@ char *file_c, *line = NULL;
     if (file == NULL)
             printerror("Error: Can't open file <file>\n");
 
-    file_l = filelengthlines = malloc(c1 * sizeof(char *));(file);
+    file_l = filelength(file);
     file_c = malloc(file_l + 1);
     
     if (file_c == NULL)
