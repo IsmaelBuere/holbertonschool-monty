@@ -30,7 +30,7 @@ char *file_c, *line = NULL;
     line = strtok(file_c, "\n");
 
     c1 = filelines(file);
-    printf("number of lines :%i\n", c1)
+    printf("number of lines :%i\n", c1);
     while (line != NULL)
     {
         printf("%s\n", line);
