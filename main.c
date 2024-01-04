@@ -56,32 +56,7 @@ char *file_c, *line = NULL;
     }
 return (0);
 }
-/*
-while (line != NULL)
-    {   
-        line = strtok(NULL, "\n");
-        lines[c2] = strdup(line);
-        if (lines[c2] == NULL)
-            printerror("Error: strdupfailed\n");
-        printf("line in lines[%i] is: %s\n", c2, lines[c2]);
-        linecount++;
-        c2++;
-    }
 
-
-line = strtok(file_c, "\n");
-while (line != NULL) {  
-   lines[c2] = strdup(line);
-   if (lines[c2] == NULL) {
-       printf("Error: strdup failed\n");
-       return (1);
-   }
-   printf("line in lines[%i] is: %s\n", c2, lines[c2]);
-   linecount++;
-   c2++;
-   line = strtok(NULL, "\n");
-}
-/*
 
 /**
  * filelength - Calculates the size of the file.
