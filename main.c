@@ -112,16 +112,16 @@ int filelines(FILE *file)
 }
 
 void execom(char * command, char * number)
-{       
+{      
         int counter = 0;
         optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
 		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
-
+        (void)number;
     while (options[counter] != NULL)
     {
     if (strcmp(command, options[counter].name ))
-        options[counter].function;
+        options[counter].f;
     counter++;
     }
     
