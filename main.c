@@ -47,9 +47,9 @@ char *file_c, *line = NULL;
     printf("number of lines :%i\n", c1);
     while (line != NULL)
     {   
-        printf("%s\n", lines[c2]);
         line = strtok(NULL, "\n");
         lines[c2] = strdup(line);
+        printf("line in lines[%i] is: %s\n", c2, lines[c2]);
         linecount++;
         c2++;
     }
