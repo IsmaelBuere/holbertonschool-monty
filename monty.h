@@ -39,7 +39,7 @@ typedef struct instruction_s
 typedef struct optcom
 {
 	char * name;
-	void (*f)(char * command, char * number);
+	void (*f)(char * number);
 } optionscommand;
 
 void printerror (char * string);
