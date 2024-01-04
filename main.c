@@ -116,5 +116,5 @@ void execom(char * command, char * number)
     if (command != NULL && number != NULL)
     printf("command is : %s and number is %s\n", command, number);
     if (command != NULL && number == NULL)
-    printf("command is : %s", command);
+    printf("command is : %s\n", command);
 }
