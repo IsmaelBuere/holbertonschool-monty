@@ -26,10 +26,10 @@ char *file_c, *line = NULL;
         {printerror("Error: malloc failed\n");}
     fread(file_c, 1, file_l, file);
     file_c[file_l] = '\0';
+    c1 = filelines(file);
     fclose(file);
     line = strtok(file_c, "\n");
 
-    c1 = filelines(file);
     printf("number of lines :%i\n", c1);
     while (line != NULL)
     {
