@@ -61,7 +61,7 @@ char *file_c, *line = NULL;
         if (token1 != NULL)
         {
             token2 = strtok(NULL, " \t");
-            execom(token1, token2)
+            execom(token1, token2);
         }
     }
 return (0);

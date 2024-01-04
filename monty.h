@@ -39,5 +39,6 @@ typedef struct instruction_s
 void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);
+void execom(char * command, char * number);
 
 #endif
