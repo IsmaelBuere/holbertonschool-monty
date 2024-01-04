@@ -9,7 +9,7 @@
 int main (int argc, char * argv[])
 {
 char * filename = NULL, ** lines;
-int file_l, linecount = 1, c1 = 0;
+int file_l, linecount = 1, c1 = 0, c2 = 0;
 FILE *file = NULL;
 
 char *file_c, *line = NULL;
@@ -34,11 +34,12 @@ char *file_c, *line = NULL;
     c1 = filelines(file);
     lines = malloc(c1 * sizeof(char *));
     fclose(file);
-    line = strtok(file_c, "\n");
 
+    lines[c2] = strtok(file_c, "\n");
+    c2++;
     printf("number of lines :%i\n", c1);
     while (line != NULL)
-    {
+    {   
         printf("%s\n", line);
         line = strtok(NULL, "\n");
         linecount++;
