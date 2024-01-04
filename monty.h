@@ -36,6 +36,12 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct optcom
+{
+	char * name;
+	void (*f)(char * command, char * number);
+} optionscommand
+
 void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);

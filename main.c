@@ -112,9 +112,17 @@ int filelines(FILE *file)
 }
 
 void execom(char * command, char * number)
-{   
-    if (command != NULL && number != NULL)
-    printf("command is : %s and number is %s\n", command, number);
-    if (command != NULL && number == NULL)
-    printf("command is : %s\n", command);
+{       
+        int counter = 0;
+        optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
+		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
+		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
+
+    while (options[counter] != NULL)
+    {
+    if (strcmp(command, options[counter].name ))
+        options[counter].function;
+    counter++;
+    }
+    
 }
