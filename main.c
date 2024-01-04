@@ -39,7 +39,7 @@ char *file_c, *line = NULL;
 
     line = strtok(file_c, "\n");
     lines[c2] = strdup(line);
-    if (lines[c2] = NULL)
+    if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
     c2++;
     printf("number of lines :%i\n", c1);
