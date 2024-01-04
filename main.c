@@ -118,11 +118,10 @@ void execom(char * command, char * number)
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
 		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
         (void)number;
-    while (options[counter] != NULL)
+    for (counter = 0 ; counter < 7 ; counter++)
     {
     if (strcmp(command, options[counter].name ))
         options[counter].f;
-    counter++;
     }
     
 }
