@@ -41,6 +41,7 @@ char *file_c, *line = NULL;
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
+    printf("%s", lines[c2]);
     c2++;
     printf("number of lines :%i\n", c1);
     while (line != NULL)
