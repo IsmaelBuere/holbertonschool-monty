@@ -60,7 +60,7 @@ char *file_c, *line = NULL;
         token1 = strtok(lines[c2], " \t");
         if (token1 != NULL)
         {
-            //token2 = strtok(NULL, " \t");
+            token2 = strtok(NULL, " \t");
             execom(token1, token2);
         }
     }
@@ -115,4 +115,6 @@ void execom(char * command, char * number)
 {   
     if (command != NULL && number != NULL)
     printf("command is : %s and number is %s\n", command, number);
+    if (command != NULL && number == NULL)
+    printf("command is : %s", command);
 }
