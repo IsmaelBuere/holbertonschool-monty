@@ -42,19 +42,47 @@ char *file_c, *line = NULL;
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
+    printf("number of lines :%i\n", c1);
     printf("line in lines[%i] is: %s\n", c2, lines[c2]);
     c2++;
-    printf("number of lines :%i\n", c1);
-    while (line != NULL)
+    for (c2 = 1 ; c2 < c1 ; c2 ++)
     {   
         line = strtok(NULL, "\n");
         lines[c2] = strdup(line);
+        if (lines[c2] == NULL)
+            printerror("Error: strdupfailed\n");
+        printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+        linecount++;
+    }
+return (0);
+}
+/*
+while (line != NULL)
+    {   
+        line = strtok(NULL, "\n");
+        lines[c2] = strdup(line);
+        if (lines[c2] == NULL)
+            printerror("Error: strdupfailed\n");
         printf("line in lines[%i] is: %s\n", c2, lines[c2]);
         linecount++;
         c2++;
     }
-return (0);
+
+
+line = strtok(file_c, "\n");
+while (line != NULL) {  
+   lines[c2] = strdup(line);
+   if (lines[c2] == NULL) {
+       printf("Error: strdup failed\n");
+       return (1);
+   }
+   printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+   linecount++;
+   c2++;
+   line = strtok(NULL, "\n");
 }
+/*
+
 /**
  * filelength - Calculates the size of the file.
  * @file: Pointer to the FILE structure representing the file.
