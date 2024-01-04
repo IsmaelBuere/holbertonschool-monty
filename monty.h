@@ -46,13 +46,13 @@ void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);
 void execom(char * command, char * number);
-void exe_push();
-void exe_nop();
-void exe_add();
-void exe_swap();
-void exe_pop();
-void exe_pint();
-void exe_pall();
+void exe_push(char * number);
+void exe_nop(char * number);
+void exe_add(char * number);
+void exe_swap(char * number);
+void exe_pop(char * number);
+void exe_pint(char * number);
+void exe_pall(char * number);
 
 
 #endif
