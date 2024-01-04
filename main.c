@@ -43,7 +43,7 @@ char *file_c, *line = NULL;
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
     //printf("number of lines :%i\n", c1);
-    //printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+    printf("line in lines[%i] is: %s\n", c2, lines[c2]);
     c2++;
     for (c2 = 1 ; c2 < c1 ; c2 ++)
     {   
@@ -51,11 +51,11 @@ char *file_c, *line = NULL;
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
             printerror("Error: strdupfailed\n");
-    //printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+    printf("line in lines[%i] is: %s\n", c2, lines[c2]);
         linecount++;
     }
 
-    for (c2 = 0 ; c2 < c1 ; c2 ++)
+    for (c2 = 0 ; c2 <= c1 ; c2 ++)
     {
         token1 = strtok(lines[c2], " \t");
         if (token1 != NULL)
