@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * main - Main entry point of the program.
  * @argc: Number of command-line arguments.
@@ -6,32 +6,35 @@
  *
  * Return: Returns 0 if the execution is successful.
  */
-void main (int argc, char * argv[])
+int main (int argc, char * argv[])
 {
-	void(argc);
-	char * filename = NULL;
-	int filecode;
-    FILE *file = NULL;
-    char *file_c;
+char * filename = NULL;
+int file_l, linecount = 1;
+FILE *file = NULL;
 
-	filename = argv[1];
+char *file_c, *line = NULL;
 
-	if (filename == NULL)
-		printerror("USAGE: monty file\n");
-
-	file = fopen(filename, "r");
-    
-	if (file == NULL)
-		printerror("Error: Can't open file <file>\n");
-
+    if (argc < 2) 
+        {printerror("USAGE: monty file\n");}
+    filename = argv[1];
+    file = fopen(filename, "r");
+    if (file == NULL)
+        {printerror("Error: Can't open file <file>\n");}
     file_l = filelength(file);
-    file_c = malloc(file_l);
-
+    file_c = malloc(file_l + 1);
     if (file_c == NULL)
-		printerror("Error: malloc failed");
+        {printerror("Error: malloc failed\n");}
     fread(file_c, 1, file_l, file);
-
-    printf("%s", file_c);
+    file_c[file_l] = '\0';
+    fclose(file);
+    line = strtok(file_c, "\n");
+    while (line != NULL)
+    {
+        printf("%s\n", line);
+        line = strtok(NULL, "\n");
+        linecount++;
+    }
+return (0);
 }
 /**
  * filelength - Calculates the size of the file.
@@ -45,7 +48,7 @@ int filelength(FILE *file)
     
     fseek(file, 0, SEEK_END); 
     file_size = ftell(file); 
-    rewind(file) 
+    rewind(file);
     return (file_size);
 }
 /**
@@ -55,6 +58,22 @@ int filelength(FILE *file)
  */
 void printerror (char * string)
 {
-    printf(string);
+    printf("%s", string);
     exit(EXIT_FAILURE);
+}
+
+int filelines(FILE *file)
+{
+        int ch;
+        int line_count = 0;
+
+        rewind(file);
+        while ((ch = fgetc(file)) != EOF)
+        {
+            if (ch == '\n')
+            {
+                line_count++;
+            }
+        }
+        return line_count;
 }

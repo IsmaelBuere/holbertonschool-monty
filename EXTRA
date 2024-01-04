@@ -1,0 +1,7 @@
+word = strtok(line, " \t");
+                        while (word != NULL)
+                        {
+                                printf("word number %i from line %i is %s\n", wordcount, linecount, word);
+                                word = strtok(NULL, " \t");
+                                wordcount++;
+                        }
