@@ -120,7 +120,7 @@ void execom(char * command, char * number)
         (void)number;
     for (counter = 0 ; counter < 7 ; counter++)
     {
-    if (strcmp(command, options[counter].name == 0))
+    if (strcmp(command, options[counter].name) == 0)
         options[counter].f(number);
     }
     
