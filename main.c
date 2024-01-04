@@ -121,7 +121,7 @@ void execom(char * command, char * number)
     for (counter = 0 ; counter < 7 ; counter++)
     {
     if (strcmp(command, options[counter].name ))
-        options[counter].f;
+        options[counter].f();
     }
     
 }
