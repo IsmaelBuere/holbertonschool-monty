@@ -38,7 +38,6 @@ char *file_c, *line = NULL;
     fclose(file);
 
     line = strtok(file_c, "\n");
-    printf("line is :%s\n", line);
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
@@ -61,12 +60,12 @@ char *file_c, *line = NULL;
         if (token1 != NULL)
         {
             token2 = strtok(NULL, " \t");
-            printf("send %s and %s to execom\n", token1, token2);
+            printf("send %s and %s to execom // ", token1, token2);
             execom(token1, token2);
         }
     }
     printf("\n");
-    
+
 return (0);
 }
 
