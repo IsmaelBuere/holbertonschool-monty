@@ -114,5 +114,5 @@ int filelines(FILE *file)
 void execom(char * command, char * number)
 {   
     if (command != NULL && number != NULL)
-    printf("command is : %s and number is %i\n", command, number);
+    printf("command is : %s and number is %s\n", command, number);
 }
