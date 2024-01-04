@@ -55,12 +55,12 @@ char *file_c, *line = NULL;
         linecount++;
     }
 
-    for (c2 = 0 ; c2 <= c1 ; c2 ++)
+    for (c2 = 0 ; c2 < c1 ; c2 ++)
     {
         token1 = strtok(lines[c2], " \t");
         if (token1 != NULL)
         {
-            token2 = strtok(NULL, " \t");
+            //token2 = strtok(NULL, " \t");
             execom(token1, token2);
         }
     }
