@@ -38,10 +38,11 @@ char *file_c, *line = NULL;
     fclose(file);
 
     line = strtok(file_c, "\n");
+    printf("line is :%s\n", line);
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
-    printf("%s", lines[c2]);
+    printf("line in lines[%i] is: %s\n", c2, lines[c2]);
     c2++;
     printf("number of lines :%i\n", c1);
     while (line != NULL)
