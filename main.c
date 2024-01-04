@@ -35,7 +35,8 @@ char *file_c, *line = NULL;
     lines = malloc(c1 * sizeof(char *));
     fclose(file);
 
-    lines[c2] = strdup(strtok(file_c, "\n"));
+    line = strtok(file_c, "\n");
+    lines[c2] = strdup(line);
     c2++;
     printf("number of lines :%i\n", c1);
     while (line != NULL)
