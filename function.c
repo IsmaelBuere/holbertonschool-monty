@@ -3,6 +3,7 @@
 
 void exe_push(stack_t **head, char * number, int linecount)
 {   
+	printf("In Line <%i> Number is <%s>");
     int num = 0;
     if (isnumber(number, linecount) != 0)
 	{
@@ -44,14 +45,19 @@ void exe_pall(stack_t **head, char *number, int linecount)
     }
 }
 
-
-void exe_pint(stack_t **head, char *number, int linecount) 
+ 
+void exe_pint(stack_t **head, char *number, int linecount)
 {
-	(void)head;
-	if (isnumber(number, linecount) != 0)
-	{
+    stack_t *topNode = *head;
 
-	}
+    if (*head == NULL)
+    {
+        fprintf(stderr, "L%d: can't print, stack empty\n", linecount);
+        exit(EXIT_FAILURE);
+    }
+
+    (void)linecount;
+    printf("%d\n", topNode->n);
 }
 
 void exe_pop(stack_t **head, char *number, int linecount) 
