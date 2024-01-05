@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,6 +54,6 @@ void exe_swap(char * number);
 void exe_pop(char * number);
 void exe_pint(char * number);
 void exe_pall(char * number);
-
+int isnumber(const char *str);
 
 #endif

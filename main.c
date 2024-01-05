@@ -8,8 +8,8 @@
  */
 int main (int argc, char * argv[])
 {
-char * filename = NULL, ** lines, *token1, *token2;
-int file_l, linecount = 1, c1 = 0, c2 = 0;
+char * filename = NULL, ** lines, *token1, *token2, *strcopy;
+int file_l, c1 = 0, c2 = 0;
 FILE *file = NULL;
 
 char *file_c, *line = NULL;
@@ -41,28 +41,31 @@ char *file_c, *line = NULL;
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
-    printf("number of lines :%i\n", c1);
-    printf("line in lines[%i] is: %s\n", c2, lines[c2]);
+    //printf("NUMBER OF LINES IN FILE:%i\n", c1);
+    //printf("UPLOADING FIRST LINE: lines[%i] is: %s\n", c2, lines[c2]);
     c2++;
-    for (c2 = 1 ; c2 < c1 ; c2 ++)
+    for (c2 = 1 ; c2 < c1 ; c2++)
     {   
         line = strtok(NULL, "\n");
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
             printerror("Error: strdupfailed\n");
-    printf("line in lines[%i] is: %s\n", c2, lines[c2]);
-        linecount++;
+   // printf("UPLOADING LINES: lines[%i] is: %s\n", c2, lines[c2]);
     }
     printf("\n");
-    for (c2 = 0 ; c2 < c1 ; c2 ++)
+    for (c2 = 0 ; c2 < c1 ; c2++)
     {
-        token1 = strtok(lines[c2], " \t");
-        if (token1 != NULL)
-        {
-            token2 = strtok(NULL, " \t");
-            printf("send %s and %s to execom // ", token1, token2);
-            execom(token1, token2);
-        }
+	strcopy = strdup(lines[c2]);
+	token1 = malloc(sizeof(char) * 100); // allocate memory for token1
+		       token2 = malloc(sizeof(char) * 100); // allocate memory for token2
+		        sscanf(strcopy, "%s %s", token1, token2);
+			 printf("token1 is %s\n", token1);
+			  printf("token2 is %s\n", token2);
+			    printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
+			     free(strcopy); // Don't forget to free strcopy!
+        execom(token1, token2);
+	free(token1);
+		free(token2);
     }
     printf("\n");
 
@@ -109,12 +112,12 @@ int filelines(FILE *file)
                 line_count++;
             }
         }
-        line_count++;
         return line_count;
 }
 
 void execom(char * command, char * number)
-{      
+{     
+     printf("INSIDE EXECOM: command is %s and number is %s \n", command, number);	
         int counter = 0;
         optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
@@ -123,7 +126,14 @@ void execom(char * command, char * number)
     for (counter = 0 ; counter < 7 ; counter++)
     {
     if (strcmp(command, options[counter].name) == 0)
-        options[counter].f(number);
+    	{
+		printf("COMPARED AND EQUAL // command %s = name of function %s \n", command, options[counter].name);
+		options[counter].f(number);
+		break;
+	}
+    else
+	    printf("NOT EQUAL // command %s = name of function %s \n", command, options[counter].name);
     }
+    printf("\n");
     
 }

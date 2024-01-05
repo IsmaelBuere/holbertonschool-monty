@@ -1,9 +1,11 @@
-push 0
-push 1   hola hola
-push 2
-push 3
-pall
-        push     4
+push 3 
+push 1 hola hola
+pop 2
+push
+pall 4 
+   swap       4 
 push 5
-          push         6
-pall
+push
+pall 4 
+add 
+pall 2 
