@@ -7,7 +7,7 @@
  */
 void exe_nop(stack_t **head, char *number, int linecount, char * command, char ** lines)
 {   
-    (void)lines:
+    (void)lines;
     (void)command;
 	(void)head;
 	(void)number;
