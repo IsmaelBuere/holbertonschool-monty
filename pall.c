@@ -1,14 +1,22 @@
 #include "monty.h"
 
-void exe_push(char *number) {
-    if (!number || !isdigit(*number)) {
-        fprintf(stderr, "L%d: usage: push integer\n", __LINE__);
+#define STACK_SIZE 100
+
+int stack[STACK_SIZE];
+int top = -1;
+
+void push(int value) {
+    if (top == STACK_SIZE - 1) {
+        fprintf(stderr, "L%d: Error: stack overflow\n", __LINE__);
         exit(EXIT_FAILURE);
     }
-    push(atoi(number));
+
+    stack[++top] = value;
 }
 
-void exe_pall(char *number) {
-    (void)number; // Unused parameter
-    pall();
+void exe_pall() {
+    int i;
+    for (i = top; i >= 0; i--) {
+        printf("%d\n", stack[i]);
+    }
 }
