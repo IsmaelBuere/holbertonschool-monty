@@ -29,7 +29,7 @@ void push(stack_t **head, char * number, int linecount)
 
 void exe_pall(stack_t **head, char *number, int linecount) 
 {	
-	void(head);
+	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
 			
@@ -38,7 +38,7 @@ void exe_pall(stack_t **head, char *number, int linecount)
 
 void exe_pint(stack_t **head, char *number, int linecount) 
 {
-	void(head);
+	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
 
@@ -47,7 +47,7 @@ void exe_pint(stack_t **head, char *number, int linecount)
 
 void exe_pop(stack_t **head, char *number, int linecount) 
 {
-	void(head);
+	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
 	
@@ -56,7 +56,7 @@ void exe_pop(stack_t **head, char *number, int linecount)
 
 void exe_swap(stack_t **head, char *number, int linecount) 
 {
-	void(head);
+	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
 		
@@ -65,7 +65,7 @@ void exe_swap(stack_t **head, char *number, int linecount)
 
 void exe_add(stack_t **head, char *number, int linecount) 
 {
-	void(head);
+	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
 	}
@@ -73,7 +73,7 @@ void exe_add(stack_t **head, char *number, int linecount)
 
 void exe_nop(stack_t **head, char *number, int linecount) 
 {
-	void(head);
+	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
 

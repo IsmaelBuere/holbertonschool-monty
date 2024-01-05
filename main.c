@@ -135,13 +135,11 @@ void execom(stack_t **head, char * command, char * number, int linecount)
 	//	printf("COMPARED AND EQUAL // command %s = name of function %s \n", command, options[counter].name);
 		options[counter].f(head, number, linecount);
 		break;
-	}
+	    }
     else
 	//    printf("NOT EQUAL // command %s = name of function %s \n", command, options[counter].name);
     }
     printf("\n");
     
 }
-
-#include "monty.h"
 
