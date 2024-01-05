@@ -1,7 +1,7 @@
 #include "monty.h"
 #include "monty.h"
 
-void push(stack_t **head, char * number, int linecount)
+void exe_push(stack_t **head, char * number, int linecount)
 {   
     int num = 0;
     if (isnumber(number, linecount) != 0)
