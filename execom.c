@@ -6,18 +6,18 @@
  */
 int filelines(FILE *file)
 {
-        int ch;
-        int line_count = 0;
+		int ch;
+		int line_count = 0;
 
-        rewind(file);
-        while ((ch = fgetc(file)) != EOF)
-        {
-            if (ch == '\n')
-            {
-                line_count++;
-            }
-        }
-        return line_count;
+		rewind(file);
+		while ((ch = fgetc(file)) != EOF)
+		{
+			if (ch == '\n')
+			{
+				line_count++;
+			}
+		}
+		return line_count;
 }
 /**
  * execom - Execute a command based on the provided command and number.
@@ -27,28 +27,30 @@ int filelines(FILE *file)
  */
 
 void execom(stack_t **head, char * command, char * number, int linecount)
-{     
-        int counter = 0;
-        optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
+{
+		int counter = 0;
+		optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
 		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
-           
-    for (counter = 0 ; counter < 7 ; counter++)
-    {
-        if (strcmp(command, options[counter].name) == 0)
-    	{
-		    options[counter].f(head, number, linecount);
-		    exe_pall(head, number, linecount);
-            break;
-	    }
-        else
-        {   
-            if (counter == 6)
-            {
-                printf("L<%i>: unknown instruction <%s>\n", linecount, command);
-                exit(EXIT_FAILURE);
-            }
-        }
-    }
+
+	for (counter = 0 ; counter < 7 ; counter++)
+	{
+		if (strcmp(command, options[counter].name) == 0)
+		{
+			options[counter].f(head, number, linecount);
+			break;
+		}
+		else
+		{
+			if (counter == 6)
+			{
+				printf("L<%i>: unknown instruction <%s>\n", linecount, command);
+                free(token1);
+                free(token2);
+                freedom(lines);
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
 }
 

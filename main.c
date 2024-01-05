@@ -37,21 +37,36 @@ char *file_c, *line = NULL;
     c1 = filelines(file);
     lines = malloc(c1 * sizeof(char *));
     if (lines == NULL)
+	{
+		free(file_c);
         printerror("Error: malloc failed\n");
+	}
     fclose(file);
 
     line = strtok(file_c, "\n");
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
+	{	
+		free(file_c);
+		freedom(lines);
         printerror("Error: strdup failed\n");
+	}
+
     c2++;
     for (c2 = 1 ; c2 < c1 ; c2++)
     {   
         line = strtok(NULL, "\n");
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
-        printerror("Error: strdupfailed\n");
+		{	
+			free(file_c);
+			freedom(lines);
+			printerror("Error: strdupfailed\n");
+		}
+        
     }
+	free(file_c);
+	
     printf("\n");
     for (c2 = 0 ; c2 < c1 ; c2++)
     {
@@ -65,9 +80,8 @@ char *file_c, *line = NULL;
 		free(token2);
         linecount++;
     }
-    printf("\n");
-
-return (0);
+    freedom(lines);
+	return (0);
 }
 
 
