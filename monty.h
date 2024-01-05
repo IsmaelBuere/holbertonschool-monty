@@ -46,17 +46,15 @@ typedef struct optcom
 void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);
-void execom(char * command, char * number);
-void exe_push(char * number);
-void exe_nop(char * number);
-void exe_add(char * number);
-void exe_swap(char * number);
-void exe_pop(char * number);
-void exe_pint(char * number);
-void exe_pall(char * number);
-int isnumber(const char *str);
-void push(stack_t **head, unsigned int cont);
-void pall();
+void execom(char * command, char * number, int linecount);
+void exe_push(char * number, int linecount);
+void exe_nop(char * number, int linecount);
+void exe_add(char * number, int linecount);
+void exe_swap(char * number, int linecount);
+void exe_pop(char * number, int linecount);
+void exe_pint(char * number, int linecount);
+void exe_pall(char * number, int linecount);
+int isnumber(const char *str, int linecount);
 int isdigit_str(const char *str);
 
 #endif

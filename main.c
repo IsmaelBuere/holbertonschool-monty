@@ -9,7 +9,7 @@
 int main (int argc, char * argv[])
 {
 char * filename = NULL, ** lines, *token1, *token2, *strcopy;
-int file_l, c1 = 0, c2 = 0;
+int file_l, c1 = 0, c2 = 0, linecount = 0;
 FILE *file = NULL;
 
 char *file_c, *line = NULL;
@@ -56,16 +56,17 @@ char *file_c, *line = NULL;
     for (c2 = 0 ; c2 < c1 ; c2++)
     {
 	strcopy = strdup(lines[c2]);
-	token1 = malloc(sizeof(char) * 100); // allocate memory for token1
-		       token2 = malloc(sizeof(char) * 100); // allocate memory for token2
+	token1 = malloc(sizeof(char) * 100);
+		       token2 = malloc(sizeof(char) * 100);
 		        sscanf(strcopy, "%s %s", token1, token2);
 			 printf("token1 is %s\n", token1);
 			  printf("token2 is %s\n", token2);
 			    printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
-			     free(strcopy); // Don't forget to free strcopy!
-        execom(token1, token2);
+			     free(strcopy);
+        execom(token1, token2, linecount);
 	free(token1);
 		free(token2);
+        linecount++;
     }
     printf("\n");
 
@@ -121,7 +122,7 @@ int filelines(FILE *file)
  * Return: (void)
  */
 
-void execom(char * command, char * number)
+void execom(char * command, char * number, int linecount)
 {     
      printf("INSIDE EXECOM: command is %s and number is %s \n", command, number);	
         int counter = 0;
@@ -134,7 +135,7 @@ void execom(char * command, char * number)
     if (strcmp(command, options[counter].name) == 0)
     	{
 		printf("COMPARED AND EQUAL // command %s = name of function %s \n", command, options[counter].name);
-		options[counter].f(number);
+		options[counter].f(number, linecount);
 		break;
 	}
     else
