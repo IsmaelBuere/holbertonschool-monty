@@ -53,7 +53,7 @@ int isnumber(const char *str, int linecount)
 	}
 	while (*str != '\0') 
 	{
-		if if ((*str - '0') < 0 || (*str - '0') > 9)
+		if ((*str - '0') < 0 || (*str - '0') > 9)
 		{
 		
 			return (0);
