@@ -3,11 +3,11 @@
 
 void exe_push(char *number, int linecount) 
 {	
-//	int num = 0;i
+	int num = 0;
 	printf("INSIDE FUNCTION: exe_push %s\n", number);
 	if (isnumber(number, linecount) != 0)
 	{
-//		num = atoi(number);
+		num = atoi(number);
 		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
 	}
 	else
@@ -15,33 +15,76 @@ void exe_push(char *number, int linecount)
 }
 
 void exe_pall(char *number, int linecount) {
-	void(linecount);
-    printf("INSIDE FUNCTION: exe_pall %s\n", number);
+	int num = 0;
+	printf("INSIDE FUNCTION: exe_push %s\n", number);
+	if (isnumber(number, linecount) != 0)
+	{
+		num = atoi(number);
+		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
+	}
+	else
+		printf("NOT A NUMBER\n");
+
 }
 
 void exe_pint(char *number, int linecount) {
-	void(linecount);
-    printf("INSIDE FUNCTION: exe_pint %s\n", number);
+	int num = 0;
+	printf("INSIDE FUNCTION: exe_push %s\n", number);
+	if (isnumber(number, linecount) != 0)
+	{
+		num = atoi(number);
+		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
+	}
+	else
+		printf("NOT A NUMBER\n");
 }
 
 void exe_pop(char *number, int linecount) {
-	void(linecount);
-    printf("INSIDE FUNCTION: exe_pop %s\n", number);
+	int num = 0;
+	printf("INSIDE FUNCTION: exe_push %s\n", number);
+	if (isnumber(number, linecount) != 0)
+	{
+		num = atoi(number);
+		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
+	}
+	else
+		printf("NOT A NUMBER\n");
 }
 
 void exe_swap(char *number, int linecount) {
-	void(linecount);
-    printf("INSIDE FUNCTION: exe_swap %s\n", number);
+	int num = 0;
+	printf("INSIDE FUNCTION: exe_push %s\n", number);
+	if (isnumber(number, linecount) != 0)
+	{
+		num = atoi(number);
+		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
+	}
+	else
+		printf("NOT A NUMBER\n");
 }
 
 void exe_add(char *number, int linecount) {
-	void(linecount);
-    printf("INSIDE FUNCTION: exe_add %s\n", number);
+	int num = 0;
+	printf("INSIDE FUNCTION: exe_push %s\n", number);
+	if (isnumber(number, linecount) != 0)
+	{
+		num = atoi(number);
+		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
+	}
+	else
+		printf("NOT A NUMBER\n");
 }
 
 void exe_nop(char *number, int linecount) {
-	void(linecount);
-    printf("INSIDE FUNCTION: exe_nop %s\n", number);
+	int num = 0;
+	printf("INSIDE FUNCTION: exe_push %s\n", number);
+	if (isnumber(number, linecount) != 0)
+	{
+		num = atoi(number);
+		printf("INSIDE FUNNCTION: %s IS A NUMBER\n", number);
+	}
+	else
+		printf("NOT A NUMBER\n");
 }
 
 int isnumber(const char *str, int linecount) 
