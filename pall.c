@@ -19,5 +19,4 @@ void exe_pall(stack_t **head, char *number, int linecount)
 		printf("%d\n", current_node->n);
 		current_node = current_node->next;
 	}
-	printf("\n");
 }
