@@ -82,7 +82,7 @@ char *file_c, *line = NULL;
 		freestring(lines[c2]);
     }
     free(lines);
-	freestack(head);
+	freestack(&head);
 	return (0);
 }
 
