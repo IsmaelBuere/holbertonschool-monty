@@ -15,26 +15,32 @@ void exe_push(char *number, int linecount)
 }
 
 void exe_pall(char *number, int linecount) {
+	void(linecount);
     printf("INSIDE FUNCTION: exe_pall %s\n", number);
 }
 
 void exe_pint(char *number, int linecount) {
+	void(linecount);
     printf("INSIDE FUNCTION: exe_pint %s\n", number);
 }
 
 void exe_pop(char *number, int linecount) {
+	void(linecount);
     printf("INSIDE FUNCTION: exe_pop %s\n", number);
 }
 
 void exe_swap(char *number, int linecount) {
+	void(linecount);
     printf("INSIDE FUNCTION: exe_swap %s\n", number);
 }
 
 void exe_add(char *number, int linecount) {
+	void(linecount);
     printf("INSIDE FUNCTION: exe_add %s\n", number);
 }
 
 void exe_nop(char *number, int linecount) {
+	void(linecount);
     printf("INSIDE FUNCTION: exe_nop %s\n", number);
 }
 
