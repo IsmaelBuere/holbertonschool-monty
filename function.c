@@ -40,14 +40,14 @@ void exe_nop(char *number) {
 
 int isnumber(const char *str) 
 {
-	if (str == NULL)
+	if (str == NULL || str[0] == '\0')
 	{
 		printerror("L<line_number>: usage: push integer\n");
 		return(0);
 	}
 	while (*str != '\0') 
 	{
-		if (!isdigit(*str))
+		if ((*str - '0') < 0 || (*str - '0') > 9)
 		{
 		
 			return (0);
