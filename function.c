@@ -90,7 +90,7 @@ int isnumber(const char *str, int linecount)
 	if (str == NULL || str[0] == '\0')
 	{
 		printf("L<%i>: usage: push integer\n", linecount);
-		error(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 		return(0);
 	}
 	while (*str != '\0') 
