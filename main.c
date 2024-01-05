@@ -113,7 +113,7 @@ void printerror (char * string)
     exit(EXIT_FAILURE);
 }
 
-void freestack (stack_t **head)
+void freestack(stack_t **head)
 {
 	stack_t *current_node = *head;
 

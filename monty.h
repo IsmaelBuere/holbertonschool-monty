@@ -59,5 +59,6 @@ int isdigit_str(stack_t **head, const char *str);
 void printerrorst (char * string1, char * string2);
 void freestring(char * string);
 void freedom(char **array);
-void freestack (stack_t **head)
+void freestack(stack_t **head);
+
 #endif
