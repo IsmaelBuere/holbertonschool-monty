@@ -45,7 +45,7 @@ void execom(stack_t **head, char * command, char * number, int linecount, char *
 			if (counter == 6)
 			{
 				printf("L<%i>: unknown instruction <%s>\n", linecount, command);
-                freestack(&head);
+                freestack(&(*head));
                 freedom(lines);
                 free(command);
                 free(number);
