@@ -38,7 +38,8 @@ void execom(stack_t **head, char * command, char * number, int linecount)
         if (strcmp(command, options[counter].name) == 0)
     	{
 		    options[counter].f(head, number, linecount);
-		    break;
+		    exe_pall(head, number, linecount);
+            break;
 	    }
         else
         {   

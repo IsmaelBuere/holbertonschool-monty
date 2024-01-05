@@ -131,7 +131,7 @@ void exe_add(stack_t **head, char *number, int linecount)
 
 void exe_nop(stack_t **head, char *number, int linecount) 
 {
-	printf("EXENOP: NOTHING");
+	printf("EXENOP: NOTHING\n");
 	(void)head;
 	(void)number;
 	(void)linecount;
