@@ -22,8 +22,10 @@ char *file_c, *line = NULL;
     file = fopen(filename, "r");
 
     if (file == NULL)
-            printerrorst("Error: Can't open file", argv[1]);
-
+		{
+        printf("Error: Can't open <%s>", argv[1]);
+		exit(EXIT_FAILURE);
+		}
     file_l = filelength(file);
     file_c = malloc(file_l + 1);
     
@@ -93,9 +95,4 @@ void printerror (char * string)
 {
     printf("%s\n", string);
     exit(EXIT_FAILURE);
-}
-
-void printerrorst (char * string1, char * string2)
-{
-	printf("%s <%s>\n", string1, string2);
 }
