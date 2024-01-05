@@ -82,6 +82,7 @@ char *file_c, *line = NULL;
 		freestring(lines[c2]);
     }
     free(lines);
+	freestack(head);
 	return (0);
 }
 
@@ -110,4 +111,17 @@ void printerror (char * string)
 {
     printf("%s\n", string);
     exit(EXIT_FAILURE);
+}
+
+void freestack (stack_t **head)
+{
+	stack_t *current_node = *head;
+
+	if (*head == NULL)
+		return;
+
+	while (current_node != NULL)
+	{
+		free(current_node);
+	}
 }
