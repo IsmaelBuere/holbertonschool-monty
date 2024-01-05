@@ -54,7 +54,7 @@ void exe_swap(stack_t **head, char * number, int linecount);
 void exe_pop(stack_t **head, char * number, int linecount);
 void exe_pint(stack_t **head, char * number, int linecount);
 void exe_pall(stack_t **head, char * number, int linecount);
-int isnumber(stack_t **head, const char *str, int linecount);
+int isnumber(const char *str, int linecount);
 int isdigit_str(stack_t **head, const char *str);
 
 #endif
