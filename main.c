@@ -127,19 +127,19 @@ void execom(stack_t **head, char * command, char * number, int linecount)
         optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
 		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
-        (void)number;
+           
     for (counter = 0 ; counter < 7 ; counter++)
     {
-    if (strcmp(command, options[counter].name) == 0)
+        if (strcmp(command, options[counter].name) == 0)
     	{
-	//	printf("COMPARED AND EQUAL // command %s = name of function %s \n", command, options[counter].name);
-		options[counter].f(head, number, linecount);
-		break;
+		    options[counter].f(head, number, linecount);
+		    break;
 	    }
-    else
-	//    printf("NOT EQUAL // command %s = name of function %s \n", command, options[counter].name);
+        else
+        {   
+            if (counter == 6)
+                printf("L<%i>: unknown instruction <opcode>", linecount);
+        }
     }
-    printf("\n");
-    
 }
 
