@@ -17,7 +17,7 @@ void exe_add(stack_t **head, char *number, int linecount, char * command, char *
         free(number);
         free(command);
         freedom(lines);
-        freestack(&head);
+        freestack(*head);
     	exit(EXIT_FAILURE);
 	}
 
