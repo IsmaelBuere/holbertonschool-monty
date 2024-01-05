@@ -114,6 +114,12 @@ int filelines(FILE *file)
         }
         return line_count;
 }
+/**
+ * execom - Execute a command based on the provided command and number.
+ * @command: A pointer to a string representing the command to be executed.
+ * @number: A pointer to a string containing additional information for the command.
+ * Return: (void)
+ */
 
 void execom(char * command, char * number)
 {     
