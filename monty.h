@@ -40,7 +40,7 @@ typedef struct instruction_s
 typedef struct optcom
 {
 	char * name;
-	void (*f)(stack_t **head, char * number, int linecount);
+	void (*f)(stack_t **head, char * number, int linecount, char * command, char ** lines);
 } optionscommand;
 
 void printerror (char * string);
