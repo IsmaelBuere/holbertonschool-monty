@@ -5,7 +5,7 @@
 int stack[STACK_SIZE];
 int top = -1;
 
-void push(int value) {
+void exe_push(int value) {
     if (top == STACK_SIZE - 1) {
         fprintf(stderr, "L%d: Error: stack overflow\n", __LINE__);
         exit(EXIT_FAILURE);
@@ -14,7 +14,7 @@ void push(int value) {
     stack[++top] = value;
 }
 
-void pall() {
+void exe_pall() {
     int i;
     for (i = top; i >= 0; i--) {
         printf("%d\n", stack[i]);
