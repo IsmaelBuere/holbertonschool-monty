@@ -11,6 +11,7 @@ int main (int argc, char * argv[])
 char * filename = NULL, ** lines, *token1, *token2, *strcopy;
 int file_l, c1 = 0, c2 = 0, linecount = 0;
 FILE *file = NULL;
+stack_t *head = NULL; 
 
 char *file_c, *line = NULL;
 
@@ -47,7 +48,7 @@ char *file_c, *line = NULL;
         line = strtok(NULL, "\n");
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
-            printerror("Error: strdupfailed\n");
+        printerror("Error: strdupfailed\n");
    // printf("UPLOADING LINES: lines[%i] is: %s\n", c2, lines[c2]);
     }
     printf("\n");
@@ -61,7 +62,7 @@ char *file_c, *line = NULL;
 	//	printf("token2 is %s\n", token2);
 	//	printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
 		free(strcopy);
-        execom(token1, token2, linecount);
+        execom(head, token1, token2, linecount);
 	    free(token1);
 		free(token2);
         linecount++;
