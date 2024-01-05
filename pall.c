@@ -1,48 +1,46 @@
 #include "monty.h"
 
 /**
- * exe_push - Execute the push opcode.
- * @number: A pointer to a string containing the integer argument for push.
- * Return: (void)
+ * f_push - function that adds node to the stack
+ * @head: double head pointer to the stack
+ * @cont: line counter
+ *
+ * Return: nothing
  */
-void exe_push(char *number)
+void push(stack_t **head, unsigned int cont)
 {
-    int value;
-
-    if (!number || !is_integer(number))
+    if (!cmd.arg || !isdigit_str(cmd.arg))
     {
-        fprintf(stderr, "L<line_number>: usage: push integer\n");
+        fprintf(stderr, "L%d: usage: push integer\n", cont);
+        fclose(cmd.file);
+        free(cmd.content);
+        free_stack(*head);
         exit(EXIT_FAILURE);
     }
 
-    value = atoi(number);
-    push(value);
+    int n = atoi(cmd.arg);
+    if (cmd.changer == 0)
+        addnode(head, n);
+    else
+        addqueue(head, n);
 }
 
 /**
- * exe_pall - Execute the pall opcode.
- * @number: A pointer to a string (not used for pall).
- * Return: (void)
+ * isdigit_str - check if a string contains only digits
+ * @str: input string
+ *
+ * Return: 1 if all characters are digits, 0 otherwise
  */
-void exe_pall(char *number)
+int isdigit_str(const char *str)
 {
-    (void)number;
+    if (!str || !*str)
+        return 0;
 
-    pall();
-}
-/**
- * push - Add a value to the stack.
- * @value: The value to be pushed onto the stack.
- * Return: (void)
- */
-void push(int value)
-{
-}
+    for (; *str; str++)
+    {
+        if (!isdigit(*str))
+            return 0;
+    }
 
-/**
- * pall - Print all values on the stack.
- * Return: (void)
- */
-void pall()
-{
+    return 1;
 }
