@@ -8,7 +8,7 @@ void freedom(char **array)
 {
 	if (array != NULL)
 		{
-	int count = 0;
+	    int count = 0;
 		while (array[count] != NULL)
 		{
 			freestring(array[count]);

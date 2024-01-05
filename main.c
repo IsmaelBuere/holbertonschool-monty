@@ -79,8 +79,9 @@ char *file_c, *line = NULL;
 	    free(token1);
 		free(token2);
         linecount++;
+		freestring(lines[c2]);
     }
-    freedom(lines);
+    free(lines);
 	return (0);
 }
 
