@@ -30,12 +30,12 @@ void exe_push(stack_t **head, char * number, int linecount)
 
 void exe_pall(stack_t **head, char *number, int linecount) 
 {	
+	(void) linecount;
 	(void)number;
     stack_t *current_node = *head;
 
     printf("EXEPULL: In Line <%i> Printing ALL\n", linecount);
-    (void) linecount;
-
+    
     if (*head == NULL)
         return;
 
@@ -44,6 +44,7 @@ void exe_pall(stack_t **head, char *number, int linecount)
         printf("%d\n", current_node->n);
         current_node = current_node->next;
     }
+	printf("\n");
 }
 
  
@@ -63,40 +64,76 @@ void exe_pint(stack_t **head, char *number, int linecount)
 
 void exe_pop(stack_t **head, char *number, int linecount) 
 {
-	printf("EXEPOP: In Line <%i> Removing Head Node\n", linecount);
-	(void)head;
-	if (isnumber(number, linecount) != 0)
-	{
-	
-	}
+    printf("EXEPOP: In Line <%i> Removing Head Node\n", linecount);
+    (void)number;
+
+    if (*head == NULL)
+    {
+        printf("L%d: can't pop, stack empty\n", linecount);
+        exit(EXIT_FAILURE);
+    }
+
+    stack_t *topNode = *head;
+    *head = topNode->next;
+
+    if (*head)
+    {
+        (*head)->prev = NULL;
+    }
+
+    free(topNode);
 }
 
 void exe_swap(stack_t **head, char *number, int linecount) 
 {
 	printf("EXESWAP: In Line <%i> Swap two top Nodes\n", linecount);
-	(void)head;
-	if (isnumber(number, linecount) != 0)
-	{
-		
-	}
+	(void)number;
+
+    if (*head == NULL || (*head)->next == NULL)
+    {
+        printf("L%d: can't swap, stack too short\n", linecount);
+        exit(EXIT_FAILURE);
+    }
+
+    stack_t *topNode = *head;
+    stack_t *nextNode = topNode->next;
+
+    // Swap values
+    int temp = topNode->n;
+    topNode->n = nextNode->n;
+    nextNode->n = temp;
 }
 
 void exe_add(stack_t **head, char *number, int linecount) 
 {
 	printf("EXEADD: In Line <%i> Top two elements added into one\n", linecount);
 	(void)head;
-	if (isnumber(number, linecount) != 0)
-	{
-	}
+	if (*head == NULL || (*head)->next == NULL)
+    {
+        printf("L%d: can't add, stack too short\n", linecount);
+        exit(EXIT_FAILURE);
+    }
+
+    stack_t *topNode = *head;
+    stack_t *nextNode = topNode->next;
+
+    nextNode->n += topNode->n;
+
+       *head = nextNode;
+    if (*head)
+    {
+        (*head)->prev = NULL;
+    }
+
+    free(topNode);
 }
 
 void exe_nop(stack_t **head, char *number, int linecount) 
 {
+	printf("EXENOP: NOTHING");
 	(void)head;
-	if (isnumber(number, linecount) != 0)
-	{
-
-	}
+	(void)number;
+	(void)head;
 }
 
 int isnumber(const char *str, int linecount) 

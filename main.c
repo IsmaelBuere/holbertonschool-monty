@@ -9,7 +9,7 @@
 int main (int argc, char * argv[])
 {
 char * filename = NULL, ** lines, *token1, *token2, *strcopy;
-int file_l, c1 = 0, c2 = 0, linecount = 0;
+int file_l, c1 = 0, c2 = 0, linecount = 1;
 FILE *file = NULL;
 stack_t *head = NULL; 
 
