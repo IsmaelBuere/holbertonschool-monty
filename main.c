@@ -62,9 +62,9 @@ char *file_c, *line = NULL;
 		printf("token1 is %s\n", token1);
 		printf("token2 is %s\n", token2);
 		printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
-			     free(strcopy);
+		free(strcopy);
         execom(token1, token2, linecount);
-	free(token1);
+	    free(token1);
 		free(token2);
         linecount++;
     }
