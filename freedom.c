@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * freedom - function to free each element of an array.
  * @array: array to be freed.
