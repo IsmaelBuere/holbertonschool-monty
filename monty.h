@@ -56,5 +56,5 @@ void exe_pint(stack_t **head, char * number, int linecount);
 void exe_pall(stack_t **head, char * number, int linecount);
 int isnumber(const char *str, int linecount);
 int isdigit_str(stack_t **head, const char *str);
-
+void printerrorst (char * string1, char * string2);
 #endif

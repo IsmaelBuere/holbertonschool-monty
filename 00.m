@@ -1,7 +1,7 @@
 push 3 
 push 1 hola hola
 pop 2
-push 2
+shush 2
 pall 4 
    swap       4 
 push 5

@@ -15,14 +15,14 @@ stack_t *head = NULL;
 
 char *file_c, *line = NULL;
 
-    if (argc < 2) 
+    if  (argc != 2) 
             printerror("USAGE: monty file\n");
         
     filename = argv[1];
     file = fopen(filename, "r");
 
     if (file == NULL)
-            printerror("Error: Can't open file <file>\n");
+            printerrorst("Error: Can't open file", argv[1]);
 
     file_l = filelength(file);
     file_c = malloc(file_l + 1);
@@ -91,10 +91,14 @@ int filelength(FILE *file)
  */
 void printerror (char * string)
 {
-    printf("%s", string);
+    printf("%s\n", string);
     exit(EXIT_FAILURE);
 }
 
+void printerrorst (char * string1, char * string2)
+{
+	printf("%s <%s>\n", string1, string2);
+}
 int filelines(FILE *file)
 {
         int ch;

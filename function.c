@@ -3,7 +3,7 @@
 
 void exe_push(stack_t **head, char * number, int linecount)
 {   
-	printf("In Line <%i> Number is <%s>");
+	printf("EXEPUSH: In Line <%i> Number is <%s>\n", linecount, number);
     int num = 0;
     if (isnumber(number, linecount) != 0)
 	{
@@ -33,6 +33,7 @@ void exe_pall(stack_t **head, char *number, int linecount)
 	(void)number;
     stack_t *current_node = *head;
 
+    printf("EXEPULL: In Line <%i> Printing ALL\n", linecount);
     (void) linecount;
 
     if (*head == NULL)
@@ -48,20 +49,21 @@ void exe_pall(stack_t **head, char *number, int linecount)
  
 void exe_pint(stack_t **head, char *number, int linecount)
 {
+	printf("EXEPINT: In Line <%i> Printing Head Node\n", linecount);
     stack_t *topNode = *head;
-
+	(void)number;
+	(void)linecount;
     if (*head == NULL)
     {
-        fprintf(stderr, "L%d: can't print, stack empty\n", linecount);
+        printf("L%d: can't print, stack empty\n", linecount);
         exit(EXIT_FAILURE);
     }
-
-    (void)linecount;
     printf("%d\n", topNode->n);
 }
 
 void exe_pop(stack_t **head, char *number, int linecount) 
 {
+	printf("EXEPOP: In Line <%i> Removing Head Node\n", linecount);
 	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
@@ -71,6 +73,7 @@ void exe_pop(stack_t **head, char *number, int linecount)
 
 void exe_swap(stack_t **head, char *number, int linecount) 
 {
+	printf("EXESWAP: In Line <%i> Swap two top Nodes\n", linecount);
 	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
@@ -80,6 +83,7 @@ void exe_swap(stack_t **head, char *number, int linecount)
 
 void exe_add(stack_t **head, char *number, int linecount) 
 {
+	printf("EXEADD: In Line <%i> Top two elements added into one\n", linecount);
 	(void)head;
 	if (isnumber(number, linecount) != 0)
 	{
