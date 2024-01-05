@@ -45,10 +45,9 @@ void execom(stack_t **head, char * command, char * number, int linecount)
 			if (counter == 6)
 			{
 				printf("L<%i>: unknown instruction <%s>\n", linecount, command);
-                free(token1);
-                free(token2);
-                freedom(lines);
-				exit(EXIT_FAILURE);
+                free(command);
+                free(number);
+            	exit(EXIT_FAILURE);
 			}
 		}
 	}

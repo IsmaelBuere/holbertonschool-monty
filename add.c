@@ -14,10 +14,8 @@ void exe_add(stack_t **head, char *number, int linecount)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		printf("L%d: can't add, stack too short\n", linecount);
-        free(token1);
-        free(token2);
-        freedom(lines);
-		exit(EXIT_FAILURE);
+        free(number);
+    	exit(EXIT_FAILURE);
 	}
 
 	stack_t *topNode = *head;

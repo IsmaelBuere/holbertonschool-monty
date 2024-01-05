@@ -12,9 +12,7 @@ void exe_swap(stack_t **head, char *number, int linecount)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", linecount);
-		free(token1);
-		free(token2);
-		freedom(lines);
+		free(number);
 		exit(EXIT_FAILURE);
 	}
 
