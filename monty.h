@@ -40,21 +40,21 @@ typedef struct instruction_s
 typedef struct optcom
 {
 	char * name;
-	void (*f)(char * number, int linecount);
+	void (*f)(stack_t **head, char * number, int linecount);
 } optionscommand;
 
 void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);
-void execom(char * command, char * number, int linecount);
-void exe_push(char * number, int linecount);
-void exe_nop(char * number, int linecount);
-void exe_add(char * number, int linecount);
-void exe_swap(char * number, int linecount);
-void exe_pop(char * number, int linecount);
-void exe_pint(char * number, int linecount);
-void exe_pall(char * number, int linecount);
-int isnumber(const char *str, int linecount);
-int isdigit_str(const char *str);
+void execom(stack_t **head, char * command, char * number, int linecount);
+void exe_push(stack_t **head, char * number, int linecount, );
+void exe_nop(stack_t **head, char * number, int linecount);
+void exe_add(stack_t **head, char * number, int linecount);
+void exe_swap(stack_t **head, char * number, int linecount);
+void exe_pop(stack_t **head, char * number, int linecount);
+void exe_pint(stack_t **head, char * number, int linecount);
+void exe_pall(stack_t **head, char * number, int linecount);
+int isnumber(stack_t **head, const char *str, int linecount);
+int isdigit_str(stack_t **head, const char *str);
 
 #endif

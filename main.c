@@ -41,8 +41,6 @@ char *file_c, *line = NULL;
     lines[c2] = strdup(line);
     if (lines[c2] == NULL)
         printerror("Error: strdup failed\n");
-    //printf("NUMBER OF LINES IN FILE:%i\n", c1);
-    //printf("UPLOADING FIRST LINE: lines[%i] is: %s\n", c2, lines[c2]);
     c2++;
     for (c2 = 1 ; c2 < c1 ; c2++)
     {   
@@ -59,9 +57,9 @@ char *file_c, *line = NULL;
     	token1 = malloc(sizeof(char) * 100);
         token2 = malloc(sizeof(char) * 100);
         sscanf(strcopy, "%s %s", token1, token2);
-		printf("token1 is %s\n", token1);
-		printf("token2 is %s\n", token2);
-		printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
+	//	printf("token1 is %s\n", token1);
+	//	printf("token2 is %s\n", token2);
+	//	printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
 		free(strcopy);
         execom(token1, token2, linecount);
 	    free(token1);
@@ -122,7 +120,7 @@ int filelines(FILE *file)
  * Return: (void)
  */
 
-void execom(char * command, char * number, int linecount)
+void execom(stack_t **head, char * command, char * number, int linecount)
 {     
      printf("INSIDE EXECOM: command is %s and number is %s \n", command, number);	
         int counter = 0;
@@ -134,13 +132,16 @@ void execom(char * command, char * number, int linecount)
     {
     if (strcmp(command, options[counter].name) == 0)
     	{
-		printf("COMPARED AND EQUAL // command %s = name of function %s \n", command, options[counter].name);
-		options[counter].f(number, linecount);
+	//	printf("COMPARED AND EQUAL // command %s = name of function %s \n", command, options[counter].name);
+		options[counter].f(head, number, linecount);
 		break;
 	}
     else
-	    printf("NOT EQUAL // command %s = name of function %s \n", command, options[counter].name);
+	//    printf("NOT EQUAL // command %s = name of function %s \n", command, options[counter].name);
     }
     printf("\n");
     
 }
+
+#include "monty.h"
+
