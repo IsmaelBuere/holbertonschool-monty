@@ -115,13 +115,13 @@ void printerror (char * string)
 
 void freestack(stack_t **head)
 {
-	stack_t *current_node = *head;
+    stack_t *current_node = *head;
 
-	if (*head == NULL)
-		return;
-
-	while (current_node != NULL)
-	{
-		free(current_node);
-	}
+    while (current_node != NULL)
+    {
+        stack_t *next_node = current_node->next;
+        free(current_node);
+        current_node = next_node;
+    }
+    *head = NULL;
 }
