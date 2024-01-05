@@ -108,6 +108,7 @@ void exe_add(stack_t **head, char *number, int linecount)
 {
 	printf("EXEADD: In Line <%i> Top two elements added into one\n", linecount);
 	(void)head;
+	(void)number;
 	if (*head == NULL || (*head)->next == NULL)
     {
         printf("L%d: can't add, stack too short\n", linecount);
@@ -133,7 +134,7 @@ void exe_nop(stack_t **head, char *number, int linecount)
 	printf("EXENOP: NOTHING");
 	(void)head;
 	(void)number;
-	(void)head;
+	(void)linecount;
 }
 
 int isnumber(const char *str, int linecount) 
