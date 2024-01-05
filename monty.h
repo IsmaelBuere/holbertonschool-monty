@@ -55,5 +55,8 @@ void exe_pop(char * number);
 void exe_pint(char * number);
 void exe_pall(char * number);
 int isnumber(const char *str);
+void push(stack_t **head, unsigned int cont);
+void pall();
+int isdigit_str(const char *str);
 
 #endif
