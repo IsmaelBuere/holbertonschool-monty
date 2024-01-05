@@ -49,7 +49,6 @@ char *file_c, *line = NULL;
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
         printerror("Error: strdupfailed\n");
-   // printf("UPLOADING LINES: lines[%i] is: %s\n", c2, lines[c2]);
     }
     printf("\n");
     for (c2 = 0 ; c2 < c1 ; c2++)
