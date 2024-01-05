@@ -56,6 +56,6 @@ void exe_pint(char * number);
 void exe_pall(char * number);
 int isnumber(const char *str);
 void push(int value);
-void exe_pall();
+void pall();
 
 #endif
