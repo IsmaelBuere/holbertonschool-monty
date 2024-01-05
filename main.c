@@ -55,13 +55,13 @@ char *file_c, *line = NULL;
     printf("\n");
     for (c2 = 0 ; c2 < c1 ; c2++)
     {
-	strcopy = strdup(lines[c2]);
-	token1 = malloc(sizeof(char) * 100);
-		       token2 = malloc(sizeof(char) * 100);
-		        sscanf(strcopy, "%s %s", token1, token2);
-			 printf("token1 is %s\n", token1);
-			  printf("token2 is %s\n", token2);
-			    printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
+    	strcopy = strdup(lines[c2]);
+    	token1 = malloc(sizeof(char) * 100);
+        token2 = malloc(sizeof(char) * 100);
+        sscanf(strcopy, "%s %s", token1, token2);
+		printf("token1 is %s\n", token1);
+		printf("token2 is %s\n", token2);
+		printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
 			     free(strcopy);
         execom(token1, token2, linecount);
 	free(token1);
