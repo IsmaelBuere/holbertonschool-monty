@@ -5,7 +5,7 @@
  * @number: Unused parameter (required by function signature).
  * @linecount: Line number where the operation is called.
  */
-void exe_swap(stack_t **head, char *number, int linecount)
+void exe_swap(stack_t **head, char *number, int linecount, char * command, char ** lines)
 {
 	(void)number;
 
@@ -13,6 +13,9 @@ void exe_swap(stack_t **head, char *number, int linecount)
 	{
 		printf("L%d: can't swap, stack too short\n", linecount);
 		free(number);
+		free(command);
+		freedom(lines);
+		freestack(&head);
 		exit(EXIT_FAILURE);
 	}
 

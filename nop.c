@@ -5,8 +5,10 @@
  * @number: Unused parameter (required by function signature).
  * @linecount: Unused parameter (required by function signature).
  */
-void exe_nop(stack_t **head, char *number, int linecount)
-{
+void exe_nop(stack_t **head, char *number, int linecount, char * command, char ** lines)
+{   
+    (void)lines:
+    (void)command;
 	(void)head;
 	(void)number;
 	(void)linecount;

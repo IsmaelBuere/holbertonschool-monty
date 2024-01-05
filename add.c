@@ -7,7 +7,7 @@
  * Return: (void)
  */
 
-void exe_add(stack_t **head, char *number, int linecount)
+void exe_add(stack_t **head, char *number, int linecount, char * command, char ** lines)
 {
 	(void)head;
 	(void)number;
@@ -15,6 +15,9 @@ void exe_add(stack_t **head, char *number, int linecount)
 	{
 		printf("L%d: can't add, stack too short\n", linecount);
         free(number);
+        free(command);
+        freedom(lines);
+        freestack(&head);
     	exit(EXIT_FAILURE);
 	}
 

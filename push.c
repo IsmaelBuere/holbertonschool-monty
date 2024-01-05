@@ -5,7 +5,7 @@
  * @number: String representing the number to be pushed.
  * @linecount: Line number where the operation is called.
  */
-void exe_push(stack_t **head, char * number, int linecount)
+void exe_push(stack_t **head, char * number, int linecount, char * command, char ** lines)
 {
 	int num = 0;
 	if (isnumber(number, linecount) != 0)
@@ -16,8 +16,11 @@ void exe_push(stack_t **head, char * number, int linecount)
 
 	if (!new_node)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		printf( "Error: malloc failed\n");
 		free(number);
+		free(command);
+		freedom(lines);
+		freestack(&head);
 		exit(EXIT_FAILURE);
 	}
 

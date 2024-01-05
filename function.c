@@ -1,10 +1,14 @@
 #include "monty.h"
 
-int isnumber(const char *str, int linecount)
+int isnumber(const char *str, int linecount, char * number, char * command, char ** lines, stack_t **head )
 {
 	if (str == NULL || str[0] == '\0')
 	{
 		printf("L<%i>: usage: push integer\n", linecount);
+		free(number);
+		free(command);
+		freedom(lines);
+		freestack(head);
 		exit(EXIT_FAILURE);
 		return(0);
 	}

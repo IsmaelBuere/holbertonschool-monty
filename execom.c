@@ -26,7 +26,7 @@ int filelines(FILE *file)
  * Return: (void)
  */
 
-void execom(stack_t **head, char * command, char * number, int linecount)
+void execom(stack_t **head, char * command, char * number, int linecount, char ** lines )
 {
 		int counter = 0;
 		optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
@@ -37,7 +37,7 @@ void execom(stack_t **head, char * command, char * number, int linecount)
 	{
 		if (strcmp(command, options[counter].name) == 0)
 		{
-			options[counter].f(head, number, linecount);
+			options[counter].f(head, number, linecount, command, lines);
 			break;
 		}
 		else
@@ -45,6 +45,8 @@ void execom(stack_t **head, char * command, char * number, int linecount)
 			if (counter == 6)
 			{
 				printf("L<%i>: unknown instruction <%s>\n", linecount, command);
+                freestack(&head);
+                freedom(lines);
                 free(command);
                 free(number);
             	exit(EXIT_FAILURE);

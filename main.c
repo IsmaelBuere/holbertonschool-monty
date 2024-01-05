@@ -75,7 +75,7 @@ char *file_c, *line = NULL;
         token2 = malloc(sizeof(char) * 100);
         sscanf(strcopy, "%s %s", token1, token2);
 		free(strcopy);
-        execom(&head, token1, token2, linecount);
+        execom(&head, token1, token2, linecount, &lines);
 	    free(token1);
 		free(token2);
         linecount++;
