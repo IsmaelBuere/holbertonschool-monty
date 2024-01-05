@@ -29,12 +29,21 @@ void exe_push(stack_t **head, char * number, int linecount)
 
 void exe_pall(stack_t **head, char *number, int linecount) 
 {	
-	(void)head;
-	if (isnumber(number, linecount) != 0)
-	{
-			
-	}
+	(void)number;
+    stack_t *current_node = *head;
+
+    (void) linecount;
+
+    if (*head == NULL)
+        return;
+
+    while (current_node != NULL)
+    {
+        printf("%d\n", current_node->n);
+        current_node = current_node->next;
+    }
 }
+
 
 void exe_pint(stack_t **head, char *number, int linecount) 
 {

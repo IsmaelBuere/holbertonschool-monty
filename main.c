@@ -57,9 +57,6 @@ char *file_c, *line = NULL;
     	token1 = malloc(sizeof(char) * 100);
         token2 = malloc(sizeof(char) * 100);
         sscanf(strcopy, "%s %s", token1, token2);
-	//	printf("token1 is %s\n", token1);
-	//	printf("token2 is %s\n", token2);
-	//	printf("BEFORE EXECOM: token1 = %s and token 2 = %s\n", token1, token2);
 		free(strcopy);
         execom(&head, token1, token2, linecount);
 	    free(token1);
@@ -122,7 +119,6 @@ int filelines(FILE *file)
 
 void execom(stack_t **head, char * command, char * number, int linecount)
 {     
-     printf("INSIDE EXECOM: command is %s and number is %s \n", command, number);	
         int counter = 0;
         optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
