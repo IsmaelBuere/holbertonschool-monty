@@ -37,28 +37,36 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct optcom - opcom and its function
+ * @name: first atribute
+ * @f: second atribute
+ *
+ * Description:opcode
+ *
+ */
 typedef struct optcom
 {
-	char * name;
-	int (*f)(stack_t **head, char * number, int linecount);
+	char *name;
+	int (*f)(stack_t **head, char *number, int linecount);
 } optionscommand;
 
-void printerror (char * string);
+void printerror(char *string);
 int filelength(FILE *file);
 int filelines(FILE *file);
-int execom(stack_t **head, char * command, char * number, int linecount);
-int exe_push(stack_t **head, char * number, int linecount);
-int exe_nop(stack_t **head, char * number, int linecount);
-int exe_add(stack_t **head, char * number, int linecount);
-int exe_swap(stack_t **head, char * number, int linecount);
-int exe_pop(stack_t **head, char * number, int linecount);
-int exe_pint(stack_t **head, char * number, int linecount);
-int exe_pall(stack_t **head, char * number, int linecount);
+int execom(stack_t **head, char *command, char *number, int linecount);
+int exe_push(stack_t **head, char *number, int linecount);
+int exe_nop(stack_t **head, char *number, int linecount);
+int exe_add(stack_t **head, char *number, int linecount);
+int exe_swap(stack_t **head, char *number, int linecount);
+int exe_pop(stack_t **head, char *number, int linecount);
+int exe_pint(stack_t **head, char *number, int linecount);
+int exe_pall(stack_t **head, char *number, int linecount);
 int isnumber(const char *str, int linecount);
 int isdigit_str(stack_t **head, const char *str);
-void printerrorst (char * string1, char * string2);
+void printerrorst(char *string1, char *string2);
 void freedom(char **array, int nol);
 void freestack(stack_t **head);
-void readlines(char ** lines, char * file_c, int c1);
+void readlines(char **lines, char *file_c, int c1);
 
 #endif
