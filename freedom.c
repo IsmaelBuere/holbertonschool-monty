@@ -1,29 +1,13 @@
-#include"monty.h"
+#include "monty.h"
 
-void freedom(char **array)
+void free_stack(stack_t **stack)
 {
-	if (array != NULL)
-	{	
-		int count = 0;
-		while (array[count] != NULL) 
-		{	
-			free(array[count]);
-			array[count] = NULL;
-			++count;
-		}
-		free(array);
-		array = NULL;
-	}
-}
+	stack_t *temp;
 
-void freestack(stack_t **head)
-{
-	stack_t *current_node = *head;
-	while (current_node != NULL)
+	while (*stack != NULL)
 	{
-		stack_t *next_node = current_node->next;
-		free(current_node);
-		current_node = next_node;
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
 	}
-	*head = NULL;
 }

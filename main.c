@@ -1,139 +1,75 @@
 #include "monty.h"
-/**
- * main - Main entry point of the program.
- * @argc: Number of command-line arguments.
- * @argv: Array of strings containing the command-line arguments.
- *
- * Return: Returns 0 if the execution is successful.
- */
-int main (int argc, char * argv[])
+
+void main(instruction_t opcodes[], stack_t **stack, char *instruction, FILE *file)
 {
-char * filename = NULL, ** lines, *token1, *token2, *strcopy;
-int file_l, c1 = 0, c2 = 0, linecount = 0;
-FILE *file = NULL;
-stack_t *head = NULL; 
+	char *token = strtok(instruction, " ");
+	int index;
 
-char *file_c, *line = NULL;
-
-    if  (argc != 2) 
-            printerror("USAGE: monty file\n");
-        
-    filename = argv[1];
-    file = fopen(filename, "r");
-
-    if (file == NULL)
-            printerrorst("Error: Can't open file", argv[1]);
-
-    file_l = filelength(file);
-    file_c = malloc(file_l + 1);
-    
-    if (file_c == NULL)
-        printerror("Error: malloc failed\n");
-
-    fread(file_c, 1, file_l, file);
-    file_c[file_l] = '\0';
-    c1 = filelines(file);
-    lines = malloc(c1 * sizeof(char *));
-	if (lines == NULL)
+	while (token != NULL && strcmp(token, "$") != 0)
 	{
-		printerror("Error: malloc failed\n");
-		free(file_c);
-	}
-	fclose(file);
+		token[strcspn(token, "$")] = '\0';
+		index = 0;
 
-    line = strtok(file_c, "\n");
-    lines[c2] = strdup(line);
-	if (lines[c2] == NULL)
+		while (opcodes[index].opcode != NULL && strcmp(token, opcodes[index].opcode) != 0)
+			index++;
+
+		if (opcodes[index].opcode != NULL)
+		{
+			if (strcmp(opcodes[index].opcode, "pall") != 0)
+				token = strtok(NULL, " ");
+
+			if (token != NULL)
+				token[strcspn(token, "$")] = '\0';
+
+			if (strcmp(opcodes[index].opcode, "push") == 0 && atoi(token) == 0
+				&& strcmp(token, "0") != 0)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_count);
+				fclose(file);
+				free_stack(*stack);
+				exit(EXIT_FAILURE);
+			}
+			else if (token != NULL)
+				opcodes[index].f(stack, atoi(token));
+			else
+				if (strcmp(opcodes[index].opcode, "push") != 0)
+					opcodes[index].f(stack, line_count);
+		}
+		else
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, token);
+			fclose(file);
+			free_stack(*stack);
+			exit(EXIT_FAILURE);
+		}
+
+		token = strtok(NULL, " ");
+	}
+}
+
+
+int main(int argument_count, char *arguments[])
+{
+	instruction_t opcodes[] = {{"push", push}, {"pall", pall}, {"pint", pint},
+		{"pop", pop}, {"nop", nop}, {"swap", swap}, {"add", add}, {NULL, NULL}};
+	FILE *file_pointer;
+	char line_buffer[256];
+	stack_t *stack = NULL;
+
+	if (argument_count != 2)
+		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
+
+	file_pointer = fopen(arguments[1], "r");
+	if (file_pointer == NULL)
+		fprintf(stderr, "Error: Can't open file %s\n", arguments[1]), exit(EXIT_FAILURE);
+
+	for (current_line = 1; fgets(line_buffer, sizeof(line_buffer), file_pointer) != NULL; current_line++)
 	{
-		printerror("Error: strdup failed\n");
-		free(file_c);
-		free(lines);
+		line_buffer[strcspn(line_buffer, "\n")] = '\0';
+		execute_instructions(opcodes, &stack, line_buffer, file_pointer);
 	}
-	c2++;
-    for (c2 = 1 ; c2 < c1 ; c2++)
-    {   
-        line = strtok(NULL, "\n");
-        lines[c2] = strdup(line);
-        if (lines[c2] == NULL)
-	{
-        printerror("Error: strdup failed\n");
-	freedom(lines);
-	free(file_c);
-	}
-    }
-    free(file_c);
-    printf("\n");
-    for (c2 = 0 ; c2 < c1 ; c2++)
-    {
-    	strcopy = strdup(lines[c2]);
-    	token1 = malloc(sizeof(char) * 100);
-        token2 = malloc(sizeof(char) * 100);
-        sscanf(strcopy, "%s %s", token1, token2);
-	free(strcopy);
-        if (execom(&head, token1, token2, linecount) == 0)
-	{
-	printf("HERE IS WHERE THE FREE AND EXIT MUST GO\n");
-	free(token1);
-	free(token2);
-	freestack(&head);
-	freedom(lines);
-	exit(EXIT_FAILURE);
-	}
-	free(token1);
-	free(token2);
-        linecount++;
-    }
-    freedom(lines);
-    freestack(&head);
-    printf("\n");
 
-return (0);
+	fclose(file_pointer);
+	free_stack(stack);
+	return (0);
 }
-
-
-/**
- * filelength - Calculates the size of the file.
- * @file: Pointer to the FILE structure representing the file.
- *
- * Return: The size of the file in bytes.
- */
-int filelength(FILE *file)
-{
-    int file_size;
-    
-    fseek(file, 0, SEEK_END); 
-    file_size = ftell(file); 
-    rewind(file);
-    return (file_size);
-}
-/**
- * printerror - Displays an error message and exits the program.
- * @string: The error message to be displayed.
- *Return: (void)
- */
-void printerror (char * string)
-{
-    printf("%s\n", string);
-    exit(EXIT_FAILURE);
-}
-
-void printerrorst (char * string1, char * string2)
-{
-	printf("%s <%s>\n", string1, string2);
-}
-int filelines(FILE *file)
-{
-        int ch;
-        int line_count = 0;
-
-        rewind(file);
-        while ((ch = fgetc(file)) != EOF)
-        {
-            if (ch == '\n')
-            {
-                line_count++;
-            }
-        }
-        return line_count;
-}
-
