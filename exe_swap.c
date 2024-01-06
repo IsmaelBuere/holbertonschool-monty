@@ -7,8 +7,8 @@
  *
  * Return: 1 if successful, 0 if the stack is too short.
  */
-int exe_swap(stack_t **head, char *number, int linecount) 
-{	
+int exe_swap(stack_t **head, char *number, int linecount)
+{
 	(void)number;
 	printf("EXESWAP: In Line <%i> Swap two top Nodes\n", linecount);
 	if (*head == NULL || (*head)->next == NULL)

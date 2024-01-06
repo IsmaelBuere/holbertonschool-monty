@@ -7,7 +7,7 @@
  *
  * Return: 1 if successful, 0 if the stack is too short.
  */
-int exe_add(stack_t **head, char *number, int linecount) 
+int exe_add(stack_t **head, char *number, int linecount)
 {
 	printf("EXEADD: In Line <%i> Top two elements added into one\n", linecount);
 	(void)head;
