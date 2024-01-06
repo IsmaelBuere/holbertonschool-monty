@@ -1,7 +1,9 @@
 #include "monty.h"
 
 int isnumber(char *str, int linecount, char * command, char ** lines, stack_t **head )
-{
+{	
+	(void)lines;
+	(void)command;
 	(void)head;
 	if (str == NULL || str[0] == '\0')
 	{

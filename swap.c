@@ -8,6 +8,8 @@
 void exe_swap(stack_t **head, char *number, int linecount, char * command, char ** lines)
 {
 	(void)number;
+	(void)command;
+	(void)lines;
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
