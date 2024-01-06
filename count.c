@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * filelines - Counts the number of lines in a file.
+ * @file: Pointer to the file to be counted.
+ *
+ * Return: Number of lines in the file.
+ */
 int filelines(FILE *file)
 {
 		int ch;
@@ -15,7 +20,6 @@ int filelines(FILE *file)
 		}
 		return line_count;
 }
-
 /**
  * filelength - Calculates the size of the file.
  * @file: Pointer to the FILE structure representing the file.

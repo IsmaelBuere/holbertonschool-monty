@@ -10,7 +10,11 @@ void printerror (char * string)
 	printf("%s\n", string);
 	exit(EXIT_FAILURE);
 }
-
+/**
+ * printerrorst - Prints an error message with two strings.
+ * @string1: First string in the error message.
+ * @string2: Second string in the error message.
+ */
 void printerrorst (char * string1, char * string2)
 {
 	printf("%s <%s>\n", string1, string2);
