@@ -54,7 +54,7 @@ void exe_swap(stack_t **head, char * number, int linecount, char * command, char
 void exe_pop(stack_t **head, char * number, int linecount, char * command, char ** lines);
 void exe_pint(stack_t **head, char * number, int linecount, char * command, char ** lines);
 void exe_pall(stack_t **head, char *number, int linecount, char * command, char ** lines);
-int isnumber(const char *str, int linecount, char * command, char ** lines, stack_t **head);
+int isnumber(char *str, int linecount, char * command, char ** lines, stack_t **head);
 void printerrorst (char * string1, char * string2);
 void freestring(char * string);
 void freedom(char **array);
