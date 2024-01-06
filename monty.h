@@ -60,4 +60,3 @@ void printerrorst (char * string1, char * string2);
 void freedom(char **array);
 void freestack(stack_t **head);
 #endif
-
