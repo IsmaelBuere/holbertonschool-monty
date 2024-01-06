@@ -9,7 +9,6 @@
  */
 int exe_pop(stack_t **head, char *number, int linecount) 
 {
-	printf("EXEPOP: In Line <%i> Removing Head Node\n", linecount);
 	(void)number;
 
 	if (*head == NULL)

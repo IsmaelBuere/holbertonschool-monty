@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * main - Entry point for the Monty interpreter.
+ * @argc: Number of command-line arguments.
+ * @argv: Array of command-line argument strings.
+ *
+ * Return: 0 on success, EXIT_FAILURE on failure.
+ */
 int main (int argc, char * argv[])
 {
 	char * filename = NULL, ** lines, *token1, *token2, *strcopy;
@@ -44,7 +50,12 @@ int main (int argc, char * argv[])
 	freestack(&head);
 	return (0);
 }
-
+/**
+ * readlines - Reads lines from a string and stores them in an array.
+ * @lines: Array to store the lines.
+ * @file_c: String containing lines separated by '\n'.
+ * @c1: Number of lines to read.
+ */
 void readlines(char ** lines, char * file_c, int c1)
 {
 	char * line = NULL;

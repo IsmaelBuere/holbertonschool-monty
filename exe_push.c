@@ -9,7 +9,6 @@
  */
 int exe_push(stack_t **head, char * number, int linecount)
 {
-	printf("EXEPUSH: In Line <%i> Number is <%s>\n", linecount, number);
 	int num = 0;
 	if (isnumber(number, linecount) != 0)
 	{
