@@ -14,7 +14,6 @@ void exe_pop(stack_t **head, char *number, int linecount, char * command, char *
 		free(command);
 		freedom(lines);
 		free(number);
-		freestack(&(*head));
 		exit(EXIT_FAILURE);
 	}
 

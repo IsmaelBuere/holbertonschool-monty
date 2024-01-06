@@ -8,7 +8,6 @@ int isnumber(char *str, int linecount, char * command, char ** lines, stack_t **
 		free(str);
 		free(command);
 		freedom(lines);
-		freestack(head);
 		exit(EXIT_FAILURE);
 		return(0);
 	}

@@ -7,7 +7,6 @@
  */
 void exe_pall(stack_t **head, char *number, int linecount, char * command, char ** lines)
 {	
-	printf("PRINTING: ");
 	(void)command;
 	(void)linecount;
 	(void)number;

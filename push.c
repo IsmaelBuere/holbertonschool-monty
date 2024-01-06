@@ -20,7 +20,6 @@ void exe_push(stack_t **head, char * number, int linecount, char * command, char
 		free(number);
 		free(command);
 		freedom(lines);
-		freestack(&(*head));
 		exit(EXIT_FAILURE);
 	}
 
