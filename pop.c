@@ -11,9 +11,6 @@ void exe_pop(stack_t **head, char *number, int linecount, char * command, char *
 	if (*head == NULL)
 	{
 		printf("L%d: can't pop, stack empty\n", linecount);
-		free(command);
-		freedom(lines);
-		free(number);
 		exit(EXIT_FAILURE);
 	}
 

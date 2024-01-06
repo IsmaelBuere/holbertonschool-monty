@@ -11,11 +11,8 @@ void freedom(char **array)
 	    int count = 0;
 		while (array[count] != NULL)
 		{
-			freestring(array[count]);
 			++count;
 		}
-	freestring(array[count]);
-	free(array);
 	array = NULL;
 	}
 }
@@ -30,7 +27,6 @@ void freestring(char * string)
 {
 if (string != NULL)
 	{
-	free(string);
 	string = NULL;
 	}
 }

@@ -17,10 +17,7 @@ void exe_push(stack_t **head, char * number, int linecount, char * command, char
 	if (!new_node)
 	{
 		printf( "Error: malloc failed\n");
-		free(number);
-		free(command);
-		freedom(lines);
-		exit(EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 	}
 
 	new_node->n = num;
