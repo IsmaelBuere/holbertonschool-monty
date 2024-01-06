@@ -55,6 +55,7 @@ char *file_c, *line = NULL;
 	for (c2 = 0 ; c2 < c1 ; c2++) {
 		strcopy = strdup(lines[c2]);
 		token2 = malloc(sizeof(char) * 100);
+		token1 = malloc(sizeof(char) * 100);
 		sscanf(strcopy, "%s %s", token1, token2);
 		free(strcopy);
 		if (execom(&head, token1, token2, linecount) == 0) {
