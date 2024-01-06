@@ -2,6 +2,7 @@
 
 int isnumber(char *str, int linecount, char * command, char ** lines, stack_t **head )
 {
+	(void)head;
 	if (str == NULL || str[0] == '\0')
 	{
 		printf("L<%i>: usage: push integer\n", linecount);
