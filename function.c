@@ -5,7 +5,7 @@ int isnumber(const char *str, int linecount, char * command, char ** lines, stac
 	if (str == NULL || str[0] == '\0')
 	{
 		printf("L<%i>: usage: push integer\n", linecount);
-		free(number);
+		free(str);
 		free(command);
 		freedom(lines);
 		freestack(head);
