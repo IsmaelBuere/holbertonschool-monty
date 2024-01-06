@@ -16,7 +16,7 @@ void exe_pint(stack_t **head, char *number, int linecount, char * command, char 
 	{
 		printf("L%d: can't print, stack empty\n", linecount);
 		free(number);
-        freestack(*head);
+        freestack(&(*head));
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", topNode->n);

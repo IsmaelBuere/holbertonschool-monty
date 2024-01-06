@@ -8,7 +8,7 @@
 void exe_push(stack_t **head, char * number, int linecount, char * command, char ** lines)
 {
 	int num = 0;
-	if (isnumber(number, linecount) != 0)
+	if (isnumber(number, linecount, command, lines, head) != 0)
 	{
 		num = atoi(number);
 
