@@ -34,22 +34,34 @@ char *file_c, *line = NULL;
     file_c[file_l] = '\0';
     c1 = filelines(file);
     lines = malloc(c1 * sizeof(char *));
-    if (lines == NULL)
-        printerror("Error: malloc failed\n");
-    fclose(file);
+	if (lines == NULL)
+	{
+		printerror("Error: malloc failed\n");
+		free(file_c);
+	}
+	fclose(file);
 
     line = strtok(file_c, "\n");
     lines[c2] = strdup(line);
-    if (lines[c2] == NULL)
-        printerror("Error: strdup failed\n");
-    c2++;
+	if (lines[c2] == NULL)
+	{
+		printerror("Error: strdup failed\n");
+		free(file_c);
+		free(lines);
+	}
+	c2++;
     for (c2 = 1 ; c2 < c1 ; c2++)
     {   
         line = strtok(NULL, "\n");
         lines[c2] = strdup(line);
         if (lines[c2] == NULL)
-        printerror("Error: strdupfailed\n");
+	{
+        printerror("Error: strdup failed\n");
+	freedom(lines);
+	free(file_c);
+	}
     }
+    free(file_c);
     printf("\n");
     for (c2 = 0 ; c2 < c1 ; c2++)
     {
@@ -57,12 +69,22 @@ char *file_c, *line = NULL;
     	token1 = malloc(sizeof(char) * 100);
         token2 = malloc(sizeof(char) * 100);
         sscanf(strcopy, "%s %s", token1, token2);
-		free(strcopy);
-        execom(&head, token1, token2, linecount);
-	    free(token1);
-		free(token2);
+	free(strcopy);
+        if (execom(&head, token1, token2, linecount) == 0)
+	{
+	printf("HERE IS WHERE THE FREE AND EXIT MUST GO\n");
+	free(token1);
+	free(token2);
+	freestack(&head);
+	freedom(lines);
+	exit(EXIT_FAILURE);
+	}
+	free(token1);
+	free(token2);
         linecount++;
     }
+    freedom(lines);
+    freestack(&head);
     printf("\n");
 
 return (0);
@@ -113,33 +135,5 @@ int filelines(FILE *file)
             }
         }
         return line_count;
-}
-/**
- * execom - Execute a command based on the provided command and number.
- * @command: A pointer to a string representing the command to be executed.
- * @number: A pointer to a string containing additional information for the command.
- * Return: (void)
- */
-
-void execom(stack_t **head, char * command, char * number, int linecount)
-{     
-        int counter = 0;
-        optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
-		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
-		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
-           
-    for (counter = 0 ; counter < 7 ; counter++)
-    {
-        if (strcmp(command, options[counter].name) == 0)
-    	{
-		    options[counter].f(head, number, linecount);
-		    break;
-	    }
-        else
-        {   
-            if (counter == 6)
-                printf("L<%i>: unknown instruction <opcode>", linecount);
-        }
-    }
 }
 

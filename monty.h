@@ -40,21 +40,23 @@ typedef struct instruction_s
 typedef struct optcom
 {
 	char * name;
-	void (*f)(stack_t **head, char * number, int linecount);
+	int (*f)(stack_t **head, char * number, int linecount);
 } optionscommand;
 
 void printerror (char * string);
 int filelength(FILE *file);
 int filelines(FILE *file);
-void execom(stack_t **head, char * command, char * number, int linecount);
-void exe_push(stack_t **head, char * number, int linecount);
-void exe_nop(stack_t **head, char * number, int linecount);
-void exe_add(stack_t **head, char * number, int linecount);
-void exe_swap(stack_t **head, char * number, int linecount);
-void exe_pop(stack_t **head, char * number, int linecount);
-void exe_pint(stack_t **head, char * number, int linecount);
-void exe_pall(stack_t **head, char * number, int linecount);
+int execom(stack_t **head, char * command, char * number, int linecount);
+int exe_push(stack_t **head, char * number, int linecount);
+int exe_nop(stack_t **head, char * number, int linecount);
+int exe_add(stack_t **head, char * number, int linecount);
+int exe_swap(stack_t **head, char * number, int linecount);
+int exe_pop(stack_t **head, char * number, int linecount);
+int exe_pint(stack_t **head, char * number, int linecount);
+int exe_pall(stack_t **head, char * number, int linecount);
 int isnumber(const char *str, int linecount);
 int isdigit_str(stack_t **head, const char *str);
 void printerrorst (char * string1, char * string2);
+void freedom(char **array);
+void freestack(stack_t **head);
 #endif
