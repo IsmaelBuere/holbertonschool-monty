@@ -81,7 +81,7 @@ char *file_c, *line = NULL;
         linecount++;
 		freestring(lines[c2]);
     }
-    free(lines);
+    freedom(lines);
 	freestack(&head);
 	return (0);
 }
