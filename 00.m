@@ -3,7 +3,7 @@ push 7
 push 3 
 push 1 hola hola
 pop 2
-pall 4 
+paasdll 4 
    swap       4 
 push 5
 push 3

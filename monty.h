@@ -59,4 +59,6 @@ int isdigit_str(stack_t **head, const char *str);
 void printerrorst (char * string1, char * string2);
 void freedom(char **array, int nol);
 void freestack(stack_t **head);
+void readlines(char ** lines, char * file_c, int c1);
+
 #endif
