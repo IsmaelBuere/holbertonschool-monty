@@ -12,8 +12,7 @@ int exe_pall(stack_t **head, char *number, int linecount)
 	(void)linecount;
 	(void)number;
 	stack_t *current_node = *head;
-
-	printf("EXEPULL: In Line <%i> Printing ALL\n", linecount);
+	
 	if (*head == NULL)
 		return(1);
 

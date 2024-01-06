@@ -9,7 +9,6 @@
  */
 int exe_add(stack_t **head, char *number, int linecount)
 {
-	printf("EXEADD: In Line <%i> Top two elements added into one\n", linecount);
 	(void)head;
 	(void)number;
 	if (*head == NULL || (*head)->next == NULL)

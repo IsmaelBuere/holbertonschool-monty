@@ -10,7 +10,6 @@
 int exe_swap(stack_t **head, char *number, int linecount)
 {
 	(void)number;
-	printf("EXESWAP: In Line <%i> Swap two top Nodes\n", linecount);
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", linecount);

@@ -9,7 +9,6 @@
  */
 int exe_nop(stack_t **head, char *number, int linecount)
 {
-	printf("EXENOP: In Line <%i> NOTHING at all\n", linecount);
 	(void)head;
 	(void)number;
 	(void)linecount;
