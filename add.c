@@ -10,7 +10,7 @@
 void exe_add(stack_t **head, char *number, int linecount, char * command, char ** lines)
 {
     (void)command;
-    (void)lines
+    (void)lines;
 	(void)head;
 	(void)number;
 	if (*head == NULL || (*head)->next == NULL)
