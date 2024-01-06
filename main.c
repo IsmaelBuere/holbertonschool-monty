@@ -76,14 +76,14 @@ char *file_c, *line = NULL;
 	free(token1);
 	free(token2);
 	freestack(&head);
-	free(lines);
+	freedom(lines);
 	exit(EXIT_FAILURE);
 	}
 	free(token1);
 	free(token2);
         linecount++;
     }
-    free(lines);
+    freedom(lines);
     freestack(&head);
     printf("\n");
 
