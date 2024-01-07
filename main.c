@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 	if (lines == NULL)
 	{ printerror("Error: malloc failed\n"), free(file_c); }
 	fclose(file), readlines(lines, file_c, c1), free(file_c);
-	printf("\n");
 	for (c2 = 0 ; c2 < c1 ; c2++)
 	{
 		strcopy = strdup(lines[c2]);
