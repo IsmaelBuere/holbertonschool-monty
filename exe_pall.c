@@ -12,14 +12,13 @@ int exe_pall(stack_t **head, char *number, int linecount)
 	(void)linecount;
 	(void)number;
 	stack_t *current_node = *head;
-	
+
 	if (*head == NULL)
-		return(1);
+		return (1);
 
 	while (current_node != NULL)
 	{
 		printf("%d\n", current_node->n);
 		current_node = current_node->next;
 	}
-	return(1);
-}
+	return (1); }

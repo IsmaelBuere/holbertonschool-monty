@@ -12,5 +12,4 @@ int exe_nop(stack_t **head, char *number, int linecount)
 	(void)head;
 	(void)number;
 	(void)linecount;
-	return(1);
-}
+	return (1); }

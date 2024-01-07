@@ -13,13 +13,13 @@ int exe_swap(stack_t **head, char *number, int linecount)
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", linecount);
-		return(0);
+		return (0);
 	}
 
 	stack_t *topNode = *head;
 	stack_t *nextNode = topNode->next;
 	int temp = topNode->n;
+
 	topNode->n = nextNode->n;
 	nextNode->n = temp;
-	return(1);
-}
+	return (1); }

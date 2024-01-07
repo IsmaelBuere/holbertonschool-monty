@@ -21,7 +21,7 @@ int isnumber(const char *str, int linecount)
 			return (0);
 		}
 		str++;
- 	}
-	return(1);
+	}
+	return (1);
 }
 

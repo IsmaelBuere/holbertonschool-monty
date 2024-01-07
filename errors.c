@@ -5,7 +5,7 @@
  * @string: The error message to be displayed.
  *Return: (void)
  */
-void printerror (char * string)
+void printerror(char *string)
 {
 	printf("%s\n", string);
 	exit(EXIT_FAILURE);
@@ -15,7 +15,7 @@ void printerror (char * string)
  * @string1: First string in the error message.
  * @string2: Second string in the error message.
  */
-void printerrorst (char * string1, char * string2)
+void printerrorst(char *string1, char *string2)
 {
 	printf("%s <%s>\n", string1, string2);
 }

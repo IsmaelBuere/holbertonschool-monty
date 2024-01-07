@@ -18,7 +18,7 @@ int filelines(FILE *file)
 				line_count++;
 			}
 		}
-		return line_count;
+		return (line_count);
 }
 /**
  * filelength - Calculates the size of the file.
