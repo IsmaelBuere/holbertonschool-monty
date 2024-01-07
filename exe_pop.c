@@ -15,7 +15,7 @@ int exe_pop(stack_t **head, char *number, int linecount)
 
 	if (*head == NULL)
 	{
-		printf("L<%d>: can't pop, stack empty\n", linecount + 1);
+		printf("L<%d>: can't pop, stack empty\n", linecount -1);
 		return (0);
 	}
 	stack_t *topNode = *head;
