@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 	fread(file_c, 1, file_l, file), file_c[file_l] = '\0';
 	c1 = filelines(file), lines = malloc(c1 * sizeof(char *));
 	if (lines == NULL)
-	{ printerror("Error: malloc failed\n"), free(file_c); }
+	{ printerror("Error: malloc failed\n"), free(file_c);
+	exit(EXIT_FAILURE); }
 	fclose(file), readlines(lines, file_c, c1), free(file_c);
 	for (c2 = 0 ; c2 < c1 ; c2++)
 	{
