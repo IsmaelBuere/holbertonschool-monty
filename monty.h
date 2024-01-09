@@ -34,7 +34,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	int (*f)(stack_t **stack, char*number, int linecount);
+	int (*f)(stack_t **stack, char *number, int linecount);
 } instruction_t;
 
 

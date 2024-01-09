@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	char *filename = NULL, **lines, *token1, *token2, *strcopy;
-	int file_l, c1 = 0, c2 = 0, linecount = 1;
+	int file_l, c1 = 0, c2 = 0, linecount = 0;
 	FILE *file = NULL;
 	stack_t *head = NULL;
 	char *file_c;
@@ -26,11 +26,11 @@ int main(int argc, char *argv[])
 	fread(file_c, 1, file_l, file), file_c[file_l] = '\0';
 	c1 = filelines(file), lines = malloc(c1 * sizeof(char *));
 	if (lines == NULL)
-	{ printerror("Error: malloc failed\n"), free(file_c);
-	exit(EXIT_FAILURE); }
+	{ printerror("Error: malloc failed\n"), free(file_c); }
 	fclose(file), readlines(lines, file_c, c1), free(file_c);
 	for (c2 = 0 ; c2 < c1 ; c2++)
 	{
+		linecount++;
 		strcopy = strdup(lines[c2]);
 		token2 = malloc(sizeof(char) * 100);
 		token1 = malloc(sizeof(char) * 100);
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 			free(token1), free(token2);
 			freestack(&head), freedom(lines, c1);
 			exit(EXIT_FAILURE); }
-		free(token1), free(token2), linecount++; }
+		free(token1), free(token2); }
 	freedom(lines, linecount);
 	freestack(&head);
 	return (0);

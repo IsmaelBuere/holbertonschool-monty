@@ -1,7 +1,7 @@
 #include"monty.h"
 
 /**
- * execom - executes the command 
+ * execom - executes the command
  * @command: command to execute
  * @number: passed as int for possible "push"
  * @linecount: number of line of the file read
