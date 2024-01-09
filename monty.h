@@ -34,22 +34,9 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	int (*f)(stack_t **stack, char*number, int linecount);
 } instruction_t;
 
-/**
- * struct optcom - opcom and its function
- * @name: first atribute
- * @f: second atribute
- *
- * Description:opcode
- *
- */
-typedef struct optcom
-{
-	char *name;
-	int (*f)(stack_t **head, char *number, int linecount);
-} optionscommand;
 
 void printerror(char *string);
 int filelength(FILE *file);

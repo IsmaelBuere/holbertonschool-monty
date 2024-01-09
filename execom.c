@@ -1,7 +1,7 @@
 #include"monty.h"
 
 /**
- * execom - executes the command if found
+ * execom - executes the command 
  * @command: command to execute
  * @number: passed as int for possible "push"
  * @linecount: number of line of the file read
@@ -12,12 +12,12 @@
 int execom(stack_t **head, char *command, char *number, int linecount)
 {
 	int counter = 0;
-	optionscommand options[] = {{"push", exe_push}, {"pall", exe_pall},
+	instruction_t options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
 		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
 	for (counter = 0 ; counter < 7 ; counter++)
 	{
-		if (strcmp(command, options[counter].name) == 0)
+		if (strcmp(command, options[counter].opcode) == 0)
 		{
 			return (options[counter].f(head, number, linecount));
 		}
