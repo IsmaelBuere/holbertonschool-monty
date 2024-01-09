@@ -25,7 +25,7 @@ int execom(stack_t **head, char *command, char *number, int linecount)
 		{
 			if (counter == 6)
 			{
-				printf("L<%i>: unknown instruction <opcode>\n", linecount);
+				printf("L%i: unknown instruction %s\n", linecount, command);
 				return (0);
 			}
 		}

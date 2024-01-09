@@ -17,6 +17,6 @@ void printerror(char *string)
  */
 void printerrorst(char *string1, char *string2)
 {
-	printf("%s <%s>\n", string1, string2);
+	printf("%s %s\n", string1, string2);
 	exit(EXIT_FAILURE);
 }
