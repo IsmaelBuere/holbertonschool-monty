@@ -11,6 +11,7 @@ int exe_add(stack_t **head, char *number, int linecount)
 {
 	(void)head;
 	(void)number;
+	(void)linecount;
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		return (0);
