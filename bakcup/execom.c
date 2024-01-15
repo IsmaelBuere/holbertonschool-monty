@@ -15,14 +15,21 @@ int execom(stack_t **head, char *command, char *number, int linecount)
 	instruction_t options[] = {{"push", exe_push}, {"pall", exe_pall},
 		{"pint", exe_pint}, {"pop", exe_pop}, {"swap", exe_swap},
 		{"add", exe_add}, {"nop", exe_nop}, {NULL, NULL}};
-
-	for (counter = 0 ; options[counter].opcode != NULL ; counter++)
+	for (counter = 0 ; counter < 7 ; counter++)
 	{
 		if (strcmp(command, options[counter].opcode) == 0)
 		{
 			return (options[counter].f(head, number, linecount));
 		}
+		else
+		{
+			if (counter == 6)
+			{
+				printf("L%i: unknown instruction %s\n", linecount, command);
+				return (0);
+			}
+		}
 	}
-	printf("L%i: unknown instruction %s\n", linecount, command);
+	exe_pall(head, number, linecount);
 	return (0);
 }
