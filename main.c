@@ -15,18 +15,18 @@ int main(int argc, char *argv[])
 	char *file_c;
 
 	if  (argc != 2)
-		printerror("USAGE: monty file\n");
+		printerror("USAGE: monty file");
 	filename = argv[1], file = fopen(filename, "r");
 	if (file == NULL)
 		printerrorst("Error: Can't open file", argv[1]);
 	file_l = filelength(file);
 	file_c = malloc(file_l + 1);
 	if (file_c == NULL)
-		printerror("Error: malloc failed\n");
+		printerror("Error: malloc failed");
 	fread(file_c, 1, file_l, file), file_c[file_l] = '\0';
 	c1 = filelines(file), lines = malloc(c1 * sizeof(char *));
 	if (lines == NULL)
-	{ printerror("Error: malloc failed\n"), free(file_c); }
+	{ printerror("Error: malloc failed"), free(file_c); }
 	fclose(file), readlines(lines, file_c, c1), free(file_c);
 	for (c2 = 0 ; c2 < c1 ; c2++)
 	{
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		token2 = malloc(sizeof(char) * 100);
 		token1 = malloc(sizeof(char) * 100);
 		if (sscanf(strcopy, "%s %s", token1, token2) == 0)
-		{ printf("Error: line is empty"); }
+		{ fprintf(stderr, "Error: line is empty"); }
 		free(strcopy);
 		if (execom(&head, token1, token2, linecount) == 0)
 		{
@@ -62,7 +62,7 @@ void readlines(char **lines, char *file_c, int c1)
 	lines[c2] = strdup(line);
 	if (lines[c2] == NULL)
 	{
-		printerror("Error: strdup failed\n");
+		printerror("Error: strdup failed");
 		free(file_c);
 		free(lines); }
 	c2++;
@@ -72,6 +72,6 @@ void readlines(char **lines, char *file_c, int c1)
 		lines[c2] = strdup(line);
 		if (lines[c2] == NULL)
 		{
-			printerror("Error: strdup failed\n");
+			printerror("Error: strdup failed");
 			freedom(lines, c2);
 			free(file_c); }}}
