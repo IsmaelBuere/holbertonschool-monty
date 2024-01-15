@@ -39,20 +39,21 @@ int main(int argc, char *argv[])
 		free(strcopy);
 		if (execom(&head, token1, token2, linecount) == 0)
 		{
-			free(token1), free(token2);
-			freestack(&head), freedom(lines, c1);
+			free(token1), free(token2), freestack(&head), freedom(lines, c1);
 			exit(EXIT_FAILURE); }
-		free(token1), free(token2); }
-	freedom(lines, linecount);
-	freestack(&head);
+			free(token1), free(token2); }
+	freedom(lines, linecount), freestack(&head);
 	return (0);
 }
+
 /**
- * readlines - Reads lines from a string and stores them in an array.
- * @lines: Array to store the lines.
- * @file_c: String containing lines separated by '\n'.
- * @c1: Number of lines to read.
- */
+* readlines - function name
+* @lines: first
+* @file_c: second
+* @c1: third
+* Return: something
+*/
+
 void readlines(char **lines, char *file_c, int c1)
 {
 	char *line = NULL;
