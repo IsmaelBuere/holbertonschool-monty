@@ -15,7 +15,7 @@ int exe_pint(stack_t **head, char *number, int linecount)
 	(void)linecount;
 	if (*head == NULL)
 	{
-		printf("L%d: can't pint, stack empty\n", linecount);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", linecount);
 		return (0);
 	}
 	printf("%d\n", topNode->n);

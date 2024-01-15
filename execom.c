@@ -23,6 +23,6 @@ int execom(stack_t **head, char *command, char *number, int linecount)
 			return (options[counter].f(head, number, linecount));
 		}
 	}
-	printf("L%i: unknown instruction %s\n", linecount, command);
+	fprintf(stderr, "L%i: unknown instruction %s\n", linecount, command);
 	return (0);
 }

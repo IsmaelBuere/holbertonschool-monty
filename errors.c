@@ -7,7 +7,7 @@
  */
 void printerror(char *string)
 {
-	printf("%s\n", string);
+	fprintf(stderr, "%s\n", string);
 	exit(EXIT_FAILURE);
 }
 /**
@@ -17,6 +17,6 @@ void printerror(char *string)
  */
 void printerrorst(char *string1, char *string2)
 {
-	printf("%s %s\n", string1, string2);
+	fprintf(stderr, "%s %s\n", string1, string2);
 	exit(EXIT_FAILURE);
 }
