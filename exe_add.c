@@ -13,7 +13,6 @@ int exe_add(stack_t **head, char *number, int linecount)
 	(void)number;
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", linecount);
 		return (0);
 	}
 	stack_t *topNode = *head;
